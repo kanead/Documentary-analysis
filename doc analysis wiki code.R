@@ -31,7 +31,6 @@ head(output)
 # save the collected data
 write.csv(output, file = "output.csv",row.names=FALSE)
 
-
 # plot the data
 output$access<-as.factor(output$access)
 class(output$access)
@@ -53,6 +52,9 @@ legend("topright", legend=c("desktop", "mobile-web"),
 
 # access the months in our dataset and add them to our original output data 
 output$month<-strftime(output$date, format = "%m")
+
+# access the weeks in our dataset and add them to our original output data 
+output$week<-strftime(output$date, format = "%W")
 
 # mobile data only
 mobileOutput <- output[output$access=="mobile-web" , ]
@@ -98,3 +100,15 @@ desktopOutputSummarySpecies<-desktopOutput %>%
   group_by(month, article) %>%
   summarise(views = sum(views))
 desktopOutputSummarySpecies<-as.data.frame(desktopOutputSummarySpecies)
+
+# group views by week and species
+mobileOutputSummaryWeekly<-mobileOutput %>%
+  group_by(week, article) %>%
+  summarise(views = sum(views))
+mobileOutputSummaryWeekly<-as.data.frame(mobileOutputSummaryWeekly)
+
+plot(mobileOutputSummaryWeekly$views ~ mobileOutputSummaryWeekly$week, pch = 16, xlab="month", ylab="hits")
+
+plot(mobileOutputSummaryWeekly$views[mobileOutputSummaryWeekly$article=="Desert_long-eared_bat"] ~ 
+       mobileOutputSummaryWeekly$week[mobileOutputSummaryWeekly$article=="Desert_long-eared_bat"], 
+     pch = 16, xlab="week", ylab="hits")
