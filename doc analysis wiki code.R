@@ -1,10 +1,17 @@
+# Planet Earth 2 Analysis
+# UK run 6 November to 11 December 2016
+# This encompasses week 44 to week 50
+# US run 18 February to 25 March 2017
+# This encompasses week 7 to week 12
+
 # clean everything first
 rm(list=ls())
 library(dplyr)
 library(pageviews)
+library(data.table)
 
 # load in the data which is a vector of species names 
-setwd("C:\\Users\\akane\\Desktop\\Science\\Manuscripts\\Documentary analysis\\Documentary-analysis")
+setwd("C:\\Users\\adamdkane\\Desktop\\Science\\Documentary analysis")
 data<-read.csv("names.csv", header = T, sep = ",")
 head(data)
 length(data$name)
@@ -15,22 +22,109 @@ length(data.new)
 class(data.new)
 #data.test<-tail(data.new,25)
 
-# modify the function from pageviews package to collect data for each species 
+# modify the function from pageviews package to collect data for each species - UK air dates
 get_wiki <- function(x){article_pageviews(project = "en.wikipedia", article = x
-                           , start = as.Date('2016-01-01'), end = as.Date("2016-12-31")
-                           , user_type = "user", platform = c("desktop", "mobile-web"))
+                                          , start = as.Date('2016-01-01'), end = as.Date("2016-12-31")
+                                          , user_type = "user", platform = c("desktop", "mobile-web"))
+}
+
+# US air dates
+get_wikiUSA <- function(x){article_pageviews(project = "en.wikipedia", article = x
+                                          , start = as.Date('2017-01-01'), end = as.Date("2017-04-20")
+                                          , user_type = "user", platform = c("desktop", "mobile-web"))
 }
 
 # loop over each species 
-output<-data.new %>%  get_wiki
+output<-data.new %>%  get_wikiUSA
 output
 length(output)
 tail(output)
 head(output)
 
-# save the collected data
-write.csv(output, file = "output.csv",row.names=FALSE)
+# save the collected data, output is UK, outputUSA is US
+write.csv(output, file = "outputUSA.csv",row.names=FALSE)
+output<-read.csv("output.csv", header = T, sep = ",")
 
+# access the months in our dataset and add them to our original output data 
+# output$month<-strftime(output$date, format = "%m")
+
+# access the weeks in our dataset and add them to our original output data 
+# output$week<-strftime(output$date, format = "%W")
+
+# mobile data only
+mobileOutput <- output[output$access=="mobile-web" , ]
+mobileOutput<-droplevels(mobileOutput)
+head(mobileOutput)
+
+# group views by week and species
+mobileOutputSummaryWeekly<-mobileOutput %>%
+  group_by(week, article) %>%
+  summarise(views = sum(views))
+mobileOutputSummaryWeekly<-as.data.frame(mobileOutputSummaryWeekly)
+
+plot(mobileOutputSummaryWeekly$views ~ mobileOutputSummaryWeekly$week, pch = 16, xlab="week", ylab="hits")
+
+plot(mobileOutputSummaryWeekly$views[mobileOutputSummaryWeekly$article=="Desert_long-eared_bat"] ~ 
+       mobileOutputSummaryWeekly$week[mobileOutputSummaryWeekly$article=="Desert_long-eared_bat"], 
+     pch = 16, xlab="week", ylab="hits")
+
+
+# find the the week with the highest number of hits for each article 
+DT <- data.table(mobileOutputSummaryWeekly)
+maxWeekSpecies<-DT[,.SD[which.max(views)],by=article]
+maxWeekSpecies<-data.frame(maxWeekSpecies)
+head(maxWeekSpecies)
+
+# were these weeks during the air dates of Planet Earth 2 in the UK? 
+length(maxWeekSpecies$article)
+sum(maxWeekSpecies$week > 44 & maxWeekSpecies$week < 51)
+sum(maxWeekSpecies$week > 44 & maxWeekSpecies$week < 51)/length(maxWeekSpecies$article)
+
+# find out which species are the ones that have the highest values then
+whichSpecies<-maxWeekSpecies[maxWeekSpecies$week > 44 & maxWeekSpecies$week < 51, "article"]
+whichSpecies<-droplevels(data.frame(whichSpecies))
+head(whichSpecies)
+whichSpecies
+write.csv(whichSpecies, file = "topSpecies.csv",row.names=FALSE)
+
+# calculate the 75th quantile for page hits by article
+
+quantileData<-mobileOutputSummaryWeekly %>%
+  group_by(article) %>%
+ summarize(q3=quantile(views, 0.75))
+quantileData<-data.frame(quantileData)
+
+
+# subset the data by the 90th quantile (or whatever you want)
+quantileDataSub <- mobileOutputSummaryWeekly %>% 
+  group_by(article) %>% 
+  filter(week, views > quantile(views, 0.9))
+quantileDataSub<-data.frame(quantileDataSub)
+head(quantileDataSub)
+
+length(quantileDataSub$views)
+length(mobileOutputSummaryWeekly$views)
+
+# count the number of weeks that fall within the original airing above 90th percentile
+totalWeeks<-quantileDataSub %>% 
+  group_by(article) %>% 
+  count(week > 44 & week < 51)
+totalWeeks<-data.frame(totalWeeks)
+
+
+# USA DATA
+
+# were these weeks during the air dates of Planet Earth 2 in the USA? 
+length(maxWeekSpecies$article)
+sum(maxWeekSpecies$week > 7 & maxWeekSpecies$week < 12)
+sum(maxWeekSpecies$week > 7 & maxWeekSpecies$week < 12)/length(maxWeekSpecies$article)
+
+# find out which species are the ones that have the highest values then
+whichSpecies<-maxWeekSpecies[maxWeekSpecies$week > 7 & maxWeekSpecies$week < 12, "article"]
+whichSpecies<-droplevels(data.frame(whichSpecies))
+head(whichSpecies)
+
+##########################################################################################
 # plot the data
 output$access<-as.factor(output$access)
 class(output$access)
@@ -50,17 +144,7 @@ plot(output$date[output$agent=="user" & output$article=="Bee-eater"],output$view
 legend("topright", legend=c("desktop", "mobile-web"),
        col=c("black", "red"), cex=0.8, pch = 16)
 
-# access the months in our dataset and add them to our original output data 
-output$month<-strftime(output$date, format = "%m")
-
-# access the weeks in our dataset and add them to our original output data 
-output$week<-strftime(output$date, format = "%W")
-
-# mobile data only
-mobileOutput <- output[output$access=="mobile-web" , ]
-mobileOutput<-droplevels(mobileOutput)
-head(mobileOutput)
-
+##########################################################################################
 # group views by month
 mobileOutputSummary<-mobileOutput %>%
   group_by(month) %>%
@@ -70,6 +154,7 @@ mobileOutputSummary<-as.data.frame(mobileOutputSummary)
 # plot views by month for mobile access 
 plot(mobileOutputSummary$views ~ mobileOutputSummary$month, pch = 16, xlab="month", ylab="hits")
 
+##########################################################################################
 # desktop data only
 desktopOutput <- output[output$access=="desktop" , ]
 desktopOutput<-droplevels(desktopOutput)
@@ -101,14 +186,5 @@ desktopOutputSummarySpecies<-desktopOutput %>%
   summarise(views = sum(views))
 desktopOutputSummarySpecies<-as.data.frame(desktopOutputSummarySpecies)
 
-# group views by week and species
-mobileOutputSummaryWeekly<-mobileOutput %>%
-  group_by(week, article) %>%
-  summarise(views = sum(views))
-mobileOutputSummaryWeekly<-as.data.frame(mobileOutputSummaryWeekly)
 
-plot(mobileOutputSummaryWeekly$views ~ mobileOutputSummaryWeekly$week, pch = 16, xlab="month", ylab="hits")
 
-plot(mobileOutputSummaryWeekly$views[mobileOutputSummaryWeekly$article=="Desert_long-eared_bat"] ~ 
-       mobileOutputSummaryWeekly$week[mobileOutputSummaryWeekly$article=="Desert_long-eared_bat"], 
-     pch = 16, xlab="week", ylab="hits")
