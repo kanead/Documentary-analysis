@@ -82,7 +82,7 @@ Version dated: \today
 \medskip
 \begin{center}
 
-\noindent{\Large \bf Do Natural History Docuementaries Prompt Public Engagement?} 
+\noindent{\Large \bf Do Natural History Documentaries Prompt Public Engagement?} 
 
 \bigskip
 
@@ -118,7 +118,7 @@ $^1$Biological, Earth and Environmental Sciences, University College Cork, Cork,
 
 \newpage 
 \section{Introduction}
-We live in the Anthropocene, one of the most critical times for our species and the planet. But we also live in a time of constant technological change, instant rewards and short attention spans. Conservation biologyis faced with broaching this issue, and making acquiredknowledgeon the state of biodiversity and solutions to avoid or minimise the 6th extinction accessible to the general public. Documentaries have recently shown their potential to fill this role, with viewing figures at record levels.But we wonder whether they are actually getting the message across, or if it is lost along the way, and if so, where that loss is/ how we can improve the quality and reach of the message.
+We live in the Anthropocene age, a critical time for our species and the planet where the effect humanity has on the natural world cannot be overstated given we are the cause of a global mass extinction event. But we also live in digital age, a time of constant technological change, instant rewards and short attention spans. Conservation practitioners are thus faced with the task of alerting the general public to the plight of the planet and its many endangered species. Documentaries have recently shown their potential to fill this role, with viewing figures at record levels. But we wonder whether this medium gets the message across, or if it is lost along the way. And if so, where does that loss occur so we can improve the quality and reach of the message.
 
 "As a conservationist, I think I would be doing the cause a great disservice if I tacked on to the end of every single programme that I did, a little homily to explain yet again that mankind is wrecking the environment that I have been showing. My job as a natural history film make is to convey the reality of the environment so that people will recognise its value, its interest, its intrinsic merit and feel some responsibility for it. After that has been done, then the various pressure groups can get at them through their own channels and ask them to send a donation to, let us say, the World Wildlife Fund." \cite{burgess1984exploring}.
 
@@ -133,7 +133,20 @@ Stephen Mills (1997)
 %
 %---------------------------------------------
 \section{Materials and Methods}
-Firstwe lookat the potential of docs to impact / generate public awarenessa.Sequence time (or no words) and number of original tweets and wiki hits. Then we look at whether docs are actually reflecting what occurs in the natural world, or as recent criticism suggests, represents a fictitious picture of the state of the plane. a.IUCN vertebrate status -> reflected in script? -> reflected in twitter volume or sentiment?-> reflected in wiki hits? b.Total time / words dedicated to cons messages (including overview sequences) c.Figure with map of distribution of stories, taxa breakdown and IUCN status breakdown. Finally, we look at whether this awareness actually results in engagement and has an impact on conservation issues. Case studies of specific sequences and web hits/donations to relevant charities
+
+First we looked at the potential of documentaries to impact / generate public awareness a.Sequence time (or no words) and number of original tweets and wiki hits. Then we look at whether docs are actually reflecting what occurs in the natural world, or as recent criticism suggests, represents a fictitious picture of the state of the plane. a. IUCN vertebrate status -> reflected in script? -> reflected in twitter volume or sentiment?-> reflected in wiki hits? b.Total time / words dedicated to cons messages (including overview sequences) c.Figure with map of distribution of stories, taxa breakdown and IUCN status breakdown. Finally, we look at whether this awareness actually results in engagement and has an impact on conservation issues. Case studies of specific sequences and web hits/donations to relevant charities.
+
+We searched the scripts from the six episodes of Planet Earth 2 for sentences that could be construed as having a conservation theme. We did this indepedently to ensure intercoder reliability. The few discrepanices that resulted were discussed so that we could set out a final set of sentences. See supplementary for script sections. 
+
+We used the R package \textit{pageviews} to find the daily number of hits the wikipedia article for each species featured on Planet Earth 2 received. We searched for both the generic name of the animal and the species-specific name e.g. Sloth and Pygmy three-toed sloth (See table X for full list of search terms). Our prediction was that the articles for the species featured on the show would see a spike around the air dates relative to the rest of the year. We were able to distinguish the page hits according to whether they came from mobile phone or a desktop search.  
+
+wiki ~ conservation message (binary) + taxa level (categorical) + sequence time + diaries presence (binary)? + relative popularity from wiki + no. of mentions + twitter sentiment?
+
+Combine data from sequence time with time during diaries
+
+Measure each species' article during 2015 and use as a baseline of popularity to see the effect of the series in 2016.
+
+If he doesn't mention the species name it means people don't search for the species by name, rather more generically, and on wikipedia this means they won't see the figure with IUCN status. 
 
 %---------------------------------------------
 %
@@ -150,6 +163,115 @@ Firstwe lookat the potential of docs to impact / generate public awarenessa.Sequ
 \caption{Average IUCN status of species featured on Planet Earth 2}
 \label{info.diff}
 \end{figure}
+
+
+%\begin{table}[]
+%\centering
+%\caption{Species featured on Planet Earth 2 with associated search terms and IUCN status}
+%\label{my-label}
+%\begin{tabular}{ll} \hline
+\begin{center}
+\begin{longtable}{ll}
+\caption[Species featured on Planet Earth 2 with associated search terms and IUCN status]
+{Species featured on Planet Earth 2 with associated search terms and IUCN status} \label{Species} \\
+
+\hline \multicolumn{1}{c}{\textbf{Search Terms}} & \multicolumn{1}{c}{\textbf{IUCN Status}} \\ \hline 
+\endfirsthead
+
+
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\hline \multicolumn{1}{c}{\textbf{Search terms}} &
+\multicolumn{1}{c}{\textbf{IUCN Status}}  \\ \hline 
+\endhead
+
+\hline \multicolumn{2}{r}{{Continued on next page}} \\ \hline
+\endfoot
+
+\hline \hline
+\endlastfoot
+
+Sloth, Pygmy three toed sloth                   & CR          \\
+Komodo dragon                                   & VU          \\
+Lemur                                           &  -           \\
+Sifaka, Verraux's Sifaka                        & EN          \\
+Iguana, Marine Iguana                           & VU          \\
+Snake, Galapagos racer                          & NA          \\
+Seabird                                         & -           \\
+Albatross, Buller's albatross                   & NT          \\
+Tern, Fairy tern                                & VU          \\
+Fody, Seychelles fody                           & NT          \\
+Noddy (tern)                                    & LC          \\
+Crab, Christmas Island red crab                 & NA          \\
+Ant, Yellow crazy ant                           & NA          \\
+Penguin, Chinstrap penguin                      & LC          \\
+Ibex, Nubian ibex                               & VU          \\
+Fox, Red fox                                    & LC          \\
+Eagle, Golden eagle                             & LC          \\
+Bear, Grizzly bear                              & LC          \\
+Bobcat                                          & LC          \\
+Groundsel, Cabbage groundsel                    & LC          \\
+Viscacha, Mountain viscacha                     & LC          \\
+Flamingo, Chilean Flamingo                      & NT          \\
+Leopard, Snow leopard                           & VU,EN       \\
+Monkey, Spider Monkey, Geoffroy's spider monkey & EN          \\
+Lizard, Draco lizard                            & NA          \\
+Hummingbird, Sword-billed hummingbird           & LC          \\
+Dolphin, River dolphin                          & DD          \\
+Jaguar                                          & NT          \\
+Frog, Glass frog, Fleischmann's Glass frog      & LC          \\
+Beetle, Click beetle                            & NA          \\
+Worm, Railroad worm                             & NA          \\
+Bird-of-paradise, Red bird-of-paradise          & NT          \\
+Wilson's bird-of-paradise                       & NT          \\
+Indri                                           & CR          \\
+Lion                                            & VU          \\
+Oryx, East African oryx                         & NT          \\
+Giraffe                                         & VU          \\
+Hawk, Harris's hawk                             & LC          \\
+Squirrel, Ground squirrel                       & ID?         \\
+Butcherbird, Shrike, Loggerhead shrike          & LC          \\
+Locust                                          & ID?         \\
+Zebra                                           & NT          \\
+Elephant, African elephant                      & VU          \\
+Sandgrouse                                      & LC          \\
+Mustang                                         & NA          \\
+Lizard, Shovel snouted lizard                   & NA          \\
+Mole, Golden mole                               & ID?         \\
+Bat, Desert long-eared bat                      & LC          \\
+Beetle, Darkling beetle                         & NA          \\
+Antelope, Saiga antelope                        & CR          \\
+Buffalo, African buffalo                        & LC          \\
+Mouse, Harvest mouse, Micromys                  & LC          \\
+Owl, Barn owl                                   & LC          \\
+Bee-eater, Southern carmine bee-eater           & LC          \\
+Bustard, Kori bustard                           & NT          \\
+Ostrich                                         & LC          \\
+Serval                                          & LC          \\
+Rat, Southern African vlei rat                  & LC          \\
+Wildebeest, Blue Wildebeest                     & LC          \\
+Widow bird, Jackson's widowbird                 & NT          \\
+Grasscutter ant                                 & ID?         \\
+Termite, Compass termites                       & ID?         \\
+Anteater, Giant anteater                        & VU          \\
+Bison                                           & NT          \\
+Caribou                                         & VU          \\
+Wolf, Grey wolf                                 & LC          \\
+Langur, Gray Langur                             & LC          \\
+Falcon, Peregrine Falcon                        & LC          \\
+Pigeon                                          & LC          \\
+Starling, Common starling                       & LC          \\
+Bowerbird, Great bowerbird                      & LC          \\
+Racoon                                          & LC          \\
+Macaque, Rhesus macaque                         & LC          \\
+Hyena, Spotted hyena                            & LC          \\
+Catfish, Wels catfish                           & LC          \\
+Turtle, Hawksbill turtle                        & CR          \\
+Otter, Smooth-coated otter                      & VU         
+%\end{tabular}
+%\end{table}
+\end{longtable}
+\end{center}
 
 
 %---------------------------------------------

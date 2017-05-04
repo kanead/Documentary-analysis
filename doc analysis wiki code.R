@@ -11,7 +11,7 @@ library(pageviews)
 library(data.table)
 
 # load in the data which is a vector of species names 
-setwd("C:\\Users\\adamdkane\\Desktop\\Science\\Documentary analysis")
+setwd("C:\\Users\\akane\\Desktop\\Science\\Manuscripts\\Documentary analysis\\Documentary-analysis")
 data<-read.csv("names.csv", header = T, sep = ",")
 head(data)
 length(data$name)
@@ -45,6 +45,12 @@ head(output)
 write.csv(output, file = "outputUSA.csv",row.names=FALSE)
 output<-read.csv("output.csv", header = T, sep = ",")
 
+boxplot(output$views[output$article=="Sloth"], lwd = 2,pch=16,range=2, outline=FALSE,  ylim = c(min(output$views[output$article=="Sloth"]), max(output$views[output$article=="Sloth"])))
+stripchart(output$views[output$article=="Sloth"], vertical = TRUE,  
+           method = "jitter", add = TRUE, pch = 20, col = 'blue')
+
+
+
 # access the months in our dataset and add them to our original output data 
 # output$month<-strftime(output$date, format = "%m")
 
@@ -64,8 +70,8 @@ mobileOutputSummaryWeekly<-as.data.frame(mobileOutputSummaryWeekly)
 
 plot(mobileOutputSummaryWeekly$views ~ mobileOutputSummaryWeekly$week, pch = 16, xlab="week", ylab="hits")
 
-plot(mobileOutputSummaryWeekly$views[mobileOutputSummaryWeekly$article=="Desert_long-eared_bat"] ~ 
-       mobileOutputSummaryWeekly$week[mobileOutputSummaryWeekly$article=="Desert_long-eared_bat"], 
+plot(mobileOutputSummaryWeekly$views[mobileOutputSummaryWeekly$article=="African_buffalo"] ~ 
+       mobileOutputSummaryWeekly$week[mobileOutputSummaryWeekly$article=="African_buffalo"], 
      pch = 16, xlab="week", ylab="hits")
 
 
@@ -96,9 +102,10 @@ quantileData<-data.frame(quantileData)
 
 
 # subset the data by the 90th quantile (or whatever you want)
+# you can set this to .99 which should show the number of species whose max was during the airing
 quantileDataSub <- mobileOutputSummaryWeekly %>% 
   group_by(article) %>% 
-  filter(week, views > quantile(views, 0.9))
+  filter(week, views > quantile(views, .9))
 quantileDataSub<-data.frame(quantileDataSub)
 head(quantileDataSub)
 
@@ -110,10 +117,22 @@ totalWeeks<-quantileDataSub %>%
   group_by(article) %>% 
   count(week > 44 & week < 51)
 totalWeeks<-data.frame(totalWeeks)
+names(totalWeeks)[names(totalWeeks) == 'week...44...week...51'] <- 'percentile_T_F'
+length(totalWeeks$percentile_T_F[totalWeeks$percentile_T_F=="TRUE"])/length(totalWeeks$percentile_T_F)
+
+sum(totalWeeks$n[totalWeeks$percentile_T_F=="TRUE"])/sum(totalWeeks$n)
 
 
+
+
+
+
+
+
+
+##########################################################################################
 # USA DATA
-
+##########################################################################################
 # were these weeks during the air dates of Planet Earth 2 in the USA? 
 length(maxWeekSpecies$article)
 sum(maxWeekSpecies$week > 7 & maxWeekSpecies$week < 12)
@@ -123,7 +142,6 @@ sum(maxWeekSpecies$week > 7 & maxWeekSpecies$week < 12)/length(maxWeekSpecies$ar
 whichSpecies<-maxWeekSpecies[maxWeekSpecies$week > 7 & maxWeekSpecies$week < 12, "article"]
 whichSpecies<-droplevels(data.frame(whichSpecies))
 head(whichSpecies)
-
 ##########################################################################################
 # plot the data
 output$access<-as.factor(output$access)
