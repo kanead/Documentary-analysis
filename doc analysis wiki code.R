@@ -4,7 +4,7 @@
 # US run 18 February to 25 March 2017
 # This encompasses week 7 to week 12
 
-# leaf-tailed gecko and web-footed gecko don't have a wiki page
+# leaf-tailed gecko, grass-cutter ant, Shovel-snouted lizard and web-footed gecko don't have a wiki page
 
 # clean everything first
 rm(list=ls())
@@ -14,19 +14,22 @@ library(data.table)
 
 # load in the data which is a vector of species names 
 setwd("C:\\Users\\akane\\Desktop\\Science\\Manuscripts\\Documentary analysis\\Documentary-analysis")
-data<-read.csv("specificNames.csv", header = T, sep = ",")
+data<-read.csv("mentionedNames.csv", header = TRUE, sep = ",")
 head(data)
 length(data$name)
+
+# test data for function
+# data.new<-head(data,1)
 
 # remove the duplicated values 
 data.new<-data[!duplicated(data), ]
 length(data.new)
 class(data.new)
-#data.test<-tail(data.new,25)
+#data.test<-head(data.new,1)
 
-# keep the column we're interested in 
-data[,(3)]
-head(data)
+# drop levels that may be problematic
+data.new<-data.new[89:90]
+droplevels(data.new)
 
 # modify the function from pageviews package to collect data for each species - UK air dates
 get_wiki <- function(x){article_pageviews(project = "en.wikipedia", article = x
@@ -40,8 +43,11 @@ get_wikiUSA <- function(x){article_pageviews(project = "en.wikipedia", article =
                                           , user_type = "user", platform = c("desktop", "mobile-web"))
 }
 
+
+
+
 # loop over each species 
-output<-data.new %>%  get_wikiUSA
+output<-data.new %>%  get_wiki
 output
 length(output)
 tail(output)
