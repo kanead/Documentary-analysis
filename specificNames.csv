@@ -1,105 +1,105 @@
-Species,speciesEdit,,mentionedName,episode,
-Pygmy three toed sloth,Pygmy three toed sloth,,pygmy three-toed sloth,1,
-Komodo dragon,Komodo dragon,,Komodo dragon,1,
-Lemur,Verraux's Sifaka,,indri,1,
-Verraux's Sifaka,Marine Iguana,,ringtail lemur,1,
-Marine Iguana,Galapagos racer,,bamboo lemurs,1,
-Galapagos racer,Buller's albatross,,sifaka ,1,
-Buller's albatross,Fairy tern,,marine iguanas,1,
-Fairy tern,Seychelles fody,,Racer snakes,1,
-Seychelles fody,Brown noddy ,,Snares penguins,1,
-Noddy (tern),Chinstrap penguin,,Shearwaters ,1,
-Christmas Island red crab,Nubian ibex,,Buller's albatross,1,
-Yellow crazy ant,Red fox,,Fairy terns,1,
-Chinstrap penguin,Golden eagle,,Seychelles fody,1,
-Nubian ibex,Grizzly bear,,noddies ,1,
-Red fox,Bobcat,,red crabs,1,
-Golden eagle,Cabbage groundsel,,Yellow crazy ants,1,
-Grizzly bear,Mountain viscacha,,chinstrap penguin,1,
-Bobcat,Chilean Flamingo,,Skuas ,1,
-Cabbage groundsel,Snow leopard,,Snow leopards,2,
-Mountain viscacha,Leopard,,Nubian ibex,2,
-Chilean Flamingo,Geoffroy's spider monkey,,Red fox,2,
-Snow leopard,Draco lizard,,golden eagle,2,
-Leopard,Sword-billed hummingbird,,peregrine ,2,?
-Geoffroy's spider monkey,River dolphin,,crow,2,
-Draco lizard,Jaguar,,grizzly bears,2,
-Sword-billed hummingbird,Fleischmann's Glass frog,,marmot ,2,
-River dolphin,Red bird-of-paradise,,bobcat ,2,
-Jaguar,Wilson's bird-of-paradise,,mouse,2,
-Fleischmann's Glass frog,Indri,,Goldeneye ducks,2,
-Click beetle,Lion,,squirrel,2,
-Railroad worm,East African oryx,,Mountain viscacha,2,
-Red bird-of-paradise,Giraffe,,flamingo ,2,
-Wilson's bird-of-paradise,Harris's hawk,,indri,3,
-Indri,Ground squirrel,,spider monkey,3,
-Lion,Loggerhead shrike,,Draco lizard,3,
-East African oryx,Plains zebra,,Swordbill hummingbird,3,
-Giraffe,African elephant,,river dolphin,3,
-Harris's hawk,Namaqua sandgrouse,,Capybara,3,
-Ground squirrel,Mustang,,giant otters,3,
-Loggerhead shrike,Shovel snouted lizard,,caiman,3,
-Locust,Desert long-eared bat,,jaguar,3,
-Zebra,Saiga antelope,,leaf-tailed gecko,3,
-African elephant,African buffalo,,glass frog,3,
-Sandgrouse,Barn owl,,click beetle,3,
-Mustang,Southern carmine bee-eater,,railroad worm,3,
-Shovel snouted lizard,Kori bustard,,millipedes,3,
-Golden mole,Ostrich,,red bird-of-paradise,3,
-Desert long-eared bat,Serval,,Wilson's bird-of-paradise,3,
-Darkling beetle,Southern African vlei rat,,lions,4,
-Saiga antelope,Blue Wildebeest,,oryx,4,
-African buffalo,Jackson's widowbird,,giraffe,4,
-Harvest mouse,Giant anteater,,Harris hawk,4,
-Barn owl,American bison,,Ground squirrels,4,
-Southern carmine bee-eater,Caribou,,butcherbird,4,
-Kori bustard,Grey wolf,,locust,4,
-Ostrich,Gray Langur,,elephants ,4,
-Serval,Peregrine Falcon,,sandgrouse ,4,
-Southern African vlei rat,Rock dove,,mustang,4,
-Blue Wildebeest,Common starling,,shovel-snouted lizard,4,
-Jackson's widowbird,Great bowerbird,,golden mole,4,
-Grasscutter ant,Racoon,,Termites,4,
-Compass termites,Rhesus macaque,,"Otonycteris, desert long-eared bat",4,
-Giant anteater,Spotted hyena,,deathstalker scorpion,4,
-Bison,Wels catfish,,Darkling beetles,4,
-Caribou,Hawksbill turtle,,Web-footed geckos,4,
-Grey wolf,Smooth-coated otter,,Namaqua chameleons,4,
-Gray Langur,,,saiga antelope,5,
-Peregrine Falcon,,,lion ,5,
-Rock dove,,,Buffalo ,5,
-Common starling,,,harvest mouse,5,
-Great bowerbird,,,barn owl,5,
-Racoon,,,Carmine bee-eaters,5,
-Rhesus macaque,,,kori bustard,5,
-Spotted hyena,,,ostrich,5,
-Wels catfish,,,African elephant,5,
-Hawksbill turtle,,,cheetah,5,?
-Smooth-coated otter,,,serval ,5,
-,,,Southern vlei rats,5,
-,,,wildebeest ,5,
-,,,Jackson's widowbirds,5,
-,,,grass-cutter ants,5,
-,,,termites ,5,
-,,,giant anteater,5,
-,,,bison ,5,
-,,,fox,5,
-,,,Caribou,5,
-,,,Arctic wolves,5,
-,,,tiger,5,
-,,,rhinos,5,
-,,,sloth bear,5,
-,,,Asian water buffalo,5,
-,,,langurs,6,
-,,,peregrine falcon,6,
-,,,leopard,6,
-,,,Pigs,6,
-,,,Starlings,6,
-,,,great bowerbird,6,
-,,,raccoon ,6,
-,,,rhesus macaque,6,
-,,,Spotted hyenas,6,
-,,,Pigeons ,6,
-,,,wels catfish,6,
-,,,hawksbill turtle,6,
-,,,smooth-coated otters,6,
+Species,speciesEdit,mentionedName,episode
+Pygmy three toed sloth,Pygmy three toed sloth,pygmy three-toed sloth,1
+Komodo dragon,Komodo dragon,Komodo dragon,1
+Lemur,Verraux's Sifaka,indri,1
+Verraux's Sifaka,Marine Iguana,ringtail lemur,1
+Marine Iguana,Galapagos racer,bamboo lemurs,1
+Galapagos racer,Buller's albatross,sifaka ,1
+Buller's albatross,Fairy tern,marine iguanas,1
+Fairy tern,Seychelles fody,Racer snakes,1
+Seychelles fody,Brown noddy ,Snares penguins,1
+Noddy (tern),Chinstrap penguin,Shearwaters ,1
+Christmas Island red crab,Nubian ibex,Buller's albatross,1
+Yellow crazy ant,Red fox,Fairy terns,1
+Chinstrap penguin,Golden eagle,Seychelles fody,1
+Nubian ibex,Grizzly bear,noddies ,1
+Red fox,Bobcat,red crabs,1
+Golden eagle,Cabbage groundsel,Yellow crazy ants,1
+Grizzly bear,Mountain viscacha,chinstrap penguin,1
+Bobcat,Chilean Flamingo,Skuas ,1
+Cabbage groundsel,Snow leopard,Snow leopards,2
+Mountain viscacha,Leopard,Nubian ibex,2
+Chilean Flamingo,Geoffroy's spider monkey,Red fox,2
+Snow leopard,Draco lizard,golden eagle,2
+Leopard,Sword-billed hummingbird,peregrine ,2
+Geoffroy's spider monkey,River dolphin,crow,2
+Draco lizard,Jaguar,grizzly bears,2
+Sword-billed hummingbird,Fleischmann's Glass frog,marmot ,2
+River dolphin,Red bird-of-paradise,bobcat ,2
+Jaguar,Wilson's bird-of-paradise,mouse,2
+Fleischmann's Glass frog,Indri,Goldeneye ducks,2
+Click beetle,Lion,squirrel,2
+Railroad worm,East African oryx,Mountain viscacha,2
+Red bird-of-paradise,Giraffe,flamingo ,2
+Wilson's bird-of-paradise,Harris's hawk,indri,3
+Indri,Ground squirrel,spider monkey,3
+Lion,Loggerhead shrike,Draco lizard,3
+East African oryx,Plains zebra,Swordbill hummingbird,3
+Giraffe,African elephant,river dolphin,3
+Harris's hawk,Namaqua sandgrouse,Capybara,3
+Ground squirrel,Mustang,giant otters,3
+Loggerhead shrike,Shovel snouted lizard,caiman,3
+Locust,Desert long-eared bat,jaguar,3
+Zebra,Saiga antelope,leaf-tailed gecko,3
+African elephant,African buffalo,glass frog,3
+Sandgrouse,Barn owl,click beetle,3
+Mustang,Southern carmine bee-eater,railroad worm,3
+Shovel snouted lizard,Kori bustard,millipedes,3
+Golden mole,Ostrich,red bird-of-paradise,3
+Desert long-eared bat,Serval,Wilson's bird-of-paradise,3
+Darkling beetle,Southern African vlei rat,lions,4
+Saiga antelope,Blue Wildebeest,oryx,4
+African buffalo,Jackson's widowbird,giraffe,4
+Harvest mouse,Giant anteater,Harris hawk,4
+Barn owl,American bison,Ground squirrels,4
+Southern carmine bee-eater,Caribou,butcherbird,4
+Kori bustard,Grey wolf,locust,4
+Ostrich,Gray Langur,elephants ,4
+Serval,Peregrine Falcon,sandgrouse ,4
+Southern African vlei rat,Rock dove,mustang,4
+Blue Wildebeest,Common starling,shovel-snouted lizard,4
+Jackson's widowbird,Great bowerbird,golden mole,4
+Grasscutter ant,Racoon,Termites,4
+Compass termites,Rhesus macaque,"Otonycteris, desert long-eared bat",4
+Giant anteater,Spotted hyena,deathstalker scorpion,4
+Bison,Wels catfish,Darkling beetles,4
+Caribou,Hawksbill turtle,Web-footed geckos,4
+Grey wolf,Smooth-coated otter,Namaqua chameleons,4
+Gray Langur,,saiga antelope,5
+Peregrine Falcon,,lion ,5
+Rock dove,,Buffalo ,5
+Common starling,,harvest mouse,5
+Great bowerbird,,barn owl,5
+Racoon,,Carmine bee-eaters,5
+Rhesus macaque,,kori bustard,5
+Spotted hyena,,ostrich,5
+Wels catfish,,African elephant,5
+Hawksbill turtle,,cheetah,5
+Smooth-coated otter,,serval ,5
+,,Southern vlei rats,5
+,,wildebeest ,5
+,,Jackson's widowbirds,5
+,,grass-cutter ants,5
+,,termites ,5
+,,giant anteater,5
+,,bison ,5
+,,fox,5
+,,Caribou,5
+,,Arctic wolves,5
+,,tiger,5
+,,rhinos,5
+,,sloth bear,5
+,,Asian water buffalo,5
+,,langurs,6
+,,peregrine falcon,6
+,,leopard,6
+,,Pigs,6
+,,Starlings,6
+,,great bowerbird,6
+,,raccoon ,6
+,,rhesus macaque,6
+,,Spotted hyenas,6
+,,Pigeons ,6
+,,wels catfish,6
+,,hawksbill turtle,6
+,,smooth-coated otters,6

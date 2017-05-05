@@ -4,6 +4,8 @@
 # US run 18 February to 25 March 2017
 # This encompasses week 7 to week 12
 
+# leaf-tailed gecko and web-footed gecko don't have a wiki page
+
 # clean everything first
 rm(list=ls())
 library(dplyr)
@@ -12,7 +14,7 @@ library(data.table)
 
 # load in the data which is a vector of species names 
 setwd("C:\\Users\\akane\\Desktop\\Science\\Manuscripts\\Documentary analysis\\Documentary-analysis")
-data<-read.csv("names.csv", header = T, sep = ",")
+data<-read.csv("specificNames.csv", header = T, sep = ",")
 head(data)
 length(data$name)
 
@@ -21,6 +23,10 @@ data.new<-data[!duplicated(data), ]
 length(data.new)
 class(data.new)
 #data.test<-tail(data.new,25)
+
+# keep the column we're interested in 
+data[,(3)]
+head(data)
 
 # modify the function from pageviews package to collect data for each species - UK air dates
 get_wiki <- function(x){article_pageviews(project = "en.wikipedia", article = x
@@ -69,9 +75,9 @@ mobileOutputSummaryWeekly<-mobileOutput %>%
 mobileOutputSummaryWeekly<-as.data.frame(mobileOutputSummaryWeekly)
 
 plot(mobileOutputSummaryWeekly$views ~ mobileOutputSummaryWeekly$week, pch = 16, xlab="week", ylab="hits")
-
-plot(mobileOutputSummaryWeekly$views[mobileOutputSummaryWeekly$article=="African_buffalo"] ~ 
-       mobileOutputSummaryWeekly$week[mobileOutputSummaryWeekly$article=="African_buffalo"], 
+dev.new()
+plot(mobileOutputSummaryWeekly$views[mobileOutputSummaryWeekly$article=="Chilean_flamingo"] ~ 
+       mobileOutputSummaryWeekly$week[mobileOutputSummaryWeekly$article=="Chilean_flamingo"], 
      pch = 16, xlab="week", ylab="hits")
 
 
