@@ -3,7 +3,7 @@
 # clean everything first
 rm(list=ls())
 
-#cork beats dublin
+#Cork beats nobody
 
 # Step 1: Load the necessary packages
 # required pakacges
