@@ -5,6 +5,9 @@
 # This encompasses week 7 to week 12
 
 # leaf-tailed gecko, grass-cutter ant, Shovel-snouted lizard and web-footed gecko don't have a wiki page
+# dropped red crab too because it leads to a disambiguation page
+
+
 
 # clean everything first
 rm(list=ls())
@@ -15,8 +18,16 @@ library(data.table)
 # load in the data which is a vector of species names 
 setwd("C:\\Users\\akane\\Desktop\\Science\\Manuscripts\\Documentary analysis\\Documentary-analysis")
 data<-read.csv("mentionedNames.csv", header = TRUE, sep = ",")
+# data<-read.csv("messages.csv", header = TRUE, sep = ",")
+
 head(data)
 length(data$name)
+
+# remove red crab  
+errorSpecies <- c("red crab")
+`%not in%` <- function (x, table) is.na(match(x, table, nomatch=NA_integer_))
+data<-data[data$name %in% errorSpecies,] 
+data<-droplevels(data)
 
 # test data for function
 # data.new<-head(data,1)
@@ -28,8 +39,10 @@ class(data.new)
 #data.test<-head(data.new,1)
 
 # drop levels that may be problematic
-data.new<-data.new[89:90]
+data.new<-data.new[65:69]
 droplevels(data.new)
+
+
 
 # modify the function from pageviews package to collect data for each species - UK air dates
 get_wiki <- function(x){article_pageviews(project = "en.wikipedia", article = x
@@ -39,7 +52,7 @@ get_wiki <- function(x){article_pageviews(project = "en.wikipedia", article = x
 
 # US air dates
 get_wikiUSA <- function(x){article_pageviews(project = "en.wikipedia", article = x
-                                          , start = as.Date('2017-01-01'), end = as.Date("2017-04-20")
+                                          , start = as.Date('2017-01-01'), end = as.Date("2017-04-30")
                                           , user_type = "user", platform = c("desktop", "mobile-web"))
 }
 
@@ -47,7 +60,7 @@ get_wikiUSA <- function(x){article_pageviews(project = "en.wikipedia", article =
 
 
 # loop over each species 
-output<-data.new %>%  get_wiki
+output<-data.new %>%  get_wikiUSA
 output
 length(output)
 tail(output)

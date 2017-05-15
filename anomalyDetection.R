@@ -39,7 +39,8 @@ library(pageviews)
 library(plyr)
 library(gtools)
 setwd("C:\\Users\\akane\\Desktop\\Science\\Manuscripts\\Documentary analysis\\Documentary-analysis")
-output<-read.csv("outputMentionedNames.csv",header = T,sep = ",")
+# output<-read.csv("outputMentionedNames.csv",header = T,sep = ",")
+output<-read.csv("messages.csv",header = T,sep = ",")
 
 # select either mobile or desktop or combined access
 # Mobile
@@ -47,24 +48,24 @@ output<-read.csv("outputMentionedNames.csv",header = T,sep = ",")
 # mobileOutput<-droplevels(mobileOutput)
 # head(mobileOutput)
 # newdata <- mobileOutput[c(3,7:8)]
-# newdata$date<-as.POSIXct(strptime(newdata$date,"%d/%m/%Y"))
+# newdata$date<-as.POSIXct(strptime(newdata$date,"%Y-%m-%d")) # "%d-%m-%Y" "%d/%m/%Y" "%Y-%m-%d"
 
 # Desktop
- deskOutput <- output[output$access=="desktop" , ]
- deskOutput<-droplevels(deskOutput)
- head(deskOutput)
- newdata <- deskOutput[c(3,7:8)]
- newdata$date<-as.POSIXct(strptime(newdata$date,"%d/%m/%Y"))
+# deskOutput <- output[output$access=="desktop" , ]
+# deskOutput<-droplevels(deskOutput)
+# head(deskOutput)
+# newdata <- deskOutput[c(3,7:8)]
+# newdata$date<-as.POSIXct(strptime(newdata$date,"%Y-%m-%d"))
 
 # Combined
 # can group the mobile and desktop data 
-#dataTableOutput<-setDT(output)[, .(sumy=sum(views)), by = .(article,date)]
+ dataTableOutput<-setDT(output)[, .(sumy=sum(views)), by = .(article,date)]
 # 271 + 370 for African elephant 01/01/16
 # 101 + 98 for hawksbill sea turtle 31/12/16
-#newdata<-data.frame(dataTableOutput)
-#names(newdata)[names(newdata) == 'sumy'] <- 'views'
-#newdata$date<-as.POSIXct(strptime(newdata$date,"%d/%m/%Y"))
-#newdata<-droplevels(newdata)
+ newdata<-data.frame(dataTableOutput)
+ names(newdata)[names(newdata) == 'sumy'] <- 'views'
+ newdata$date<-as.POSIXct(strptime(newdata$date,"%Y-%m-%d"))
+ newdata<-droplevels(newdata)
 
 ######################################################################################################
 # removed red crab from list of episode 1 species 
@@ -79,7 +80,7 @@ newdata1<-droplevels(newdata1)
 
 # episode 1 function
 airedAnomDataDays1<-ddply(newdata1, "article", function(x) {
-  res = AnomalyDetectionTs((data.frame(x[2:3])), max_anoms=0.02, direction='both', plot=TRUE)
+  res = AnomalyDetectionTs((data.frame(x[2:3])), max_anoms=0.01, direction='both', plot=TRUE)
   # determine if the anomalies are between 2 dates
   anomalies<-ifelse(strptime((res$anoms$timestamp), format = "%Y-%m-%d") 
                     == strptime(as.Date("2016-11-06"), format = "%Y-%m-%d") | 
@@ -100,7 +101,7 @@ newdata2<-droplevels(newdata2)
 
 # episode 2 function
 airedAnomDataDays2<-ddply(newdata2, "article", function(x) {
-  res = AnomalyDetectionTs((data.frame(x[2:3])), max_anoms=0.02, direction='both', plot=TRUE)
+  res = AnomalyDetectionTs((data.frame(x[2:3])), max_anoms=0.01, direction='both', plot=TRUE)
   # determine if the anomalies are between 2 dates
   anomalies<-ifelse(strptime((res$anoms$timestamp), format = "%Y-%m-%d") 
                     == strptime(as.Date("2016-11-13"), format = "%Y-%m-%d") | 
@@ -121,7 +122,7 @@ newdata3<-droplevels(newdata3)
 
 # episode 3 function
 airedAnomDataDays3<-ddply(newdata3, "article", function(x) {
-  res = AnomalyDetectionTs((data.frame(x[2:3])), max_anoms=0.02, direction='both', plot=TRUE)
+  res = AnomalyDetectionTs((data.frame(x[2:3])), max_anoms=0.01, direction='both', plot=TRUE)
   # determine if the anomalies are between 2 dates
   anomalies<-ifelse(strptime((res$anoms$timestamp), format = "%Y-%m-%d") 
                     == strptime(as.Date("2016-11-20"), format = "%Y-%m-%d") | 
@@ -142,7 +143,7 @@ newdata4<-droplevels(newdata4)
 
 # episode 4 function
 airedAnomDataDays4<-ddply(newdata4, "article", function(x) {
-  res = AnomalyDetectionTs((data.frame(x[2:3])), max_anoms=0.02, direction='both', plot=TRUE)
+  res = AnomalyDetectionTs((data.frame(x[2:3])), max_anoms=0.01, direction='both', plot=TRUE)
   # determine if the anomalies are between 2 dates
   anomalies<-ifelse(strptime((res$anoms$timestamp), format = "%Y-%m-%d") 
                     == strptime(as.Date("2016-11-27"), format = "%Y-%m-%d") | 
@@ -169,7 +170,7 @@ airedAnomDataDays5<-ddply(newdata5, "article", function(x) {
   anomalies<-ifelse(strptime((res$anoms$timestamp), format = "%Y-%m-%d") 
                     == strptime(as.Date("2016-12-04"), format = "%Y-%m-%d") | 
                       strptime((res$anoms$timestamp), format = "%Y-%m-%d")
-                    == strptime(as.Date("2016-12-12"), format = "%Y-%m-%d"),1,0)
+                    == strptime(as.Date("2016-12-05"), format = "%Y-%m-%d"),1,0)
   # find the sum total of the ones that are
   sum(anomalies)
 })
@@ -185,7 +186,7 @@ newdata6<-droplevels(newdata6)
 
 # episode 6 function
 airedAnomDataDays6<-ddply(newdata6, "article", function(x) {
-  res = AnomalyDetectionTs((data.frame(x[2:3])), max_anoms=0.02, direction='both', plot=TRUE)
+  res = AnomalyDetectionTs((data.frame(x[2:3])), max_anoms=0.01, direction='both', plot=TRUE)
   # determine if the anomalies are between 2 dates
   anomalies<-ifelse(strptime((res$anoms$timestamp), format = "%Y-%m-%d") 
                     == strptime(as.Date("2016-12-11"), format = "%Y-%m-%d") | 
@@ -218,8 +219,40 @@ testDataCombo<-rbind.fill(airedAnomDataDays1,airedAnomDataDays2,airedAnomDataDay
       airedAnomDataDays6)
 
 ######################################################################################################
+# Messages Instead of Species 
+######################################################################################################
+airedAnomDataDaysMessages <-ddply(newdata, "article", function(x) {
+  res = AnomalyDetectionTs((data.frame(x[2:3])), max_anoms=0.01, direction='both', plot=TRUE)
+  # determine if the anomalies are between 2 dates
+  anomalies<-ifelse(strptime((res$anoms$timestamp), format = "%Y-%m-%d") 
+                    == strptime(as.Date("2016-11-06"), format = "%Y-%m-%d") | 
+                      strptime((res$anoms$timestamp), format = "%Y-%m-%d")
+                    == strptime(as.Date("2016-11-07"), format = "%Y-%m-%d") |
+                      strptime((res$anoms$timestamp), format = "%Y-%m-%d") 
+                    == strptime(as.Date("2016-11-13"), format = "%Y-%m-%d") | 
+                      strptime((res$anoms$timestamp), format = "%Y-%m-%d")
+                    == strptime(as.Date("2016-11-14"), format = "%Y-%m-%d") |
+                      strptime((res$anoms$timestamp), format = "%Y-%m-%d") 
+                    == strptime(as.Date("2016-11-20"), format = "%Y-%m-%d") | 
+                      strptime((res$anoms$timestamp), format = "%Y-%m-%d")
+                    == strptime(as.Date("2016-11-21"), format = "%Y-%m-%d") |
+                      strptime((res$anoms$timestamp), format = "%Y-%m-%d")
+                    == strptime(as.Date("2016-11-27"), format = "%Y-%m-%d") |
+                      strptime((res$anoms$timestamp), format = "%Y-%m-%d")
+                    == strptime(as.Date("2016-11-28"), format = "%Y-%m-%d") |
+                      strptime((res$anoms$timestamp), format = "%Y-%m-%d")
+                    == strptime(as.Date("2016-12-04"), format = "%Y-%m-%d") |
+                      strptime((res$anoms$timestamp), format = "%Y-%m-%d")
+                    == strptime(as.Date("2016-12-05"), format = "%Y-%m-%d") |
+                      strptime((res$anoms$timestamp), format = "%Y-%m-%d")
+                    == strptime(as.Date("2016-12-11"), format = "%Y-%m-%d") |
+                      strptime((res$anoms$timestamp), format = "%Y-%m-%d")
+                    == strptime(as.Date("2016-12-12"), format = "%Y-%m-%d") ,1,0)
+  # find the sum total of the ones that are
+  sum(anomalies)
+})
 
-
+######################################################################################################
 # loop over all species to find the number of anomalies within the time frame of the air dates
 airedAnomData<-ddply(newdata, "article", function(x) {
   res = AnomalyDetectionTs((data.frame(x[2:3])), max_anoms=0.01, direction='both', plot=TRUE)
@@ -242,7 +275,7 @@ head(anomalyData)
 # Can test individual species here 
 # generic function to loop over the whole data frame requires two columns, one for the date and
 # one for the number of hits. 
-testRun <- newdata[newdata$article=="Spotted_hyena" , ]
+testRun <- newdata[newdata$article=="Lion" , ]
 res = AnomalyDetectionTs(data.frame(testRun[2:3]), max_anoms=0.01, direction='both', plot=TRUE)
 res$plot
 res$anoms
