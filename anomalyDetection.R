@@ -296,11 +296,52 @@ lines(testRun$date[order(testRun$date)], testRun$views[order(testRun$date)], xli
 finalData<-read.csv("results of anomaly analysis.csv",header = T,sep = ",")
 head(finalData)
 
-sum(finalData$airDateAnomaliesOne.>0)/length(finalData$airDateAnomaliesOne.)
-sum(finalData$airDateAnomaliesTwo>0)/length(finalData$airDateAnomaliesTwo)
+# find the number of animals that have an anomaly during UK broadcast using mobile access @ 1%
+sum(finalData$airDateAnomaliesOne.[finalData$access=="mobile" & finalData$location=="UK"] > 0) /
+  length(finalData$airDateAnomaliesOne.[finalData$access=="mobile" & finalData$location=="UK"])
 
+# find the number of animals that have an anomaly during US broadcast using mobile access @ 1%
+sum(finalData$airDateAnomaliesOne.[finalData$access=="mobile" & finalData$location=="USA"] > 0) /
+length(finalData$airDateAnomaliesOne.[finalData$access=="mobile" & finalData$location=="USA"])
 
+# find the number of animals that have an anomaly during UK broadcast using desktop access @ 1%
+sum(finalData$airDateAnomaliesOne.[finalData$access=="desktop" & finalData$location=="UK"] > 0) /
+  length(finalData$airDateAnomaliesOne.[finalData$access=="desktop" & finalData$location=="UK"])
 
+# find the number of animals that have an anomaly during US broadcast using desktop access @ 1%
+sum(finalData$airDateAnomaliesOne.[finalData$access=="desktop" & finalData$location=="USA"] > 0) /
+  length(finalData$airDateAnomaliesOne.[finalData$access=="desktop" & finalData$location=="USA"])
 
+# find the number of animals that have an anomaly during UK broadcast using combined access @ 1%
+sum(finalData$airDateAnomaliesOne.[finalData$access=="combined" & finalData$location=="UK"] > 0) /
+  length(finalData$airDateAnomaliesOne.[finalData$access=="combined" & finalData$location=="UK"])
 
+# find the number of animals that have an anomaly during US broadcast using combined access @ 1%
+sum(finalData$airDateAnomaliesOne.[finalData$access=="combined" & finalData$location=="USA"] > 0) /
+  length(finalData$airDateAnomaliesOne.[finalData$access=="combined" & finalData$location=="USA"])
 
+# 2%
+
+# find the number of animals that have an anomaly during UK broadcast using mobile access @ 2%
+sum(finalData$airDateAnomaliesTwo.[finalData$access=="mobile" & finalData$location=="UK"] > 0) /
+  length(finalData$airDateAnomaliesTwo.[finalData$access=="mobile" & finalData$location=="UK"])
+
+# find the number of animals that have an anomaly during US broadcast using mobile access @ 2%
+sum(finalData$airDateAnomaliesTwo.[finalData$access=="mobile" & finalData$location=="USA"] > 0) /
+  length(finalData$airDateAnomaliesTwo.[finalData$access=="mobile" & finalData$location=="USA"])
+
+# find the number of animals that have an anomaly during UK broadcast using desktop access @ 2%
+sum(finalData$airDateAnomaliesTwo.[finalData$access=="desktop" & finalData$location=="UK"] > 0) /
+  length(finalData$airDateAnomaliesTwo.[finalData$access=="desktop" & finalData$location=="UK"])
+
+# find the number of animals that have an anomaly during US broadcast using desktop access @ 2%
+sum(finalData$airDateAnomaliesTwo.[finalData$access=="desktop" & finalData$location=="USA"] > 0) /
+  length(finalData$airDateAnomaliesTwo.[finalData$access=="desktop" & finalData$location=="USA"])
+
+# find the number of animals that have an anomaly during UK broadcast using combined access @ 2%
+sum(finalData$airDateAnomaliesTwo.[finalData$access=="combined" & finalData$location=="UK"] > 0) /
+  length(finalData$airDateAnomaliesTwo.[finalData$access=="combined" & finalData$location=="UK"])
+
+# find the number of animals that have an anomaly during US broadcast using combined access @ 2%
+sum(finalData$airDateAnomaliesTwo.[finalData$access=="combined" & finalData$location=="USA"] > 0) /
+  length(finalData$airDateAnomaliesTwo.[finalData$access=="combined" & finalData$location=="USA"])

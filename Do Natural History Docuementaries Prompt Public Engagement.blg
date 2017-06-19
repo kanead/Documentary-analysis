@@ -1,3 +1,7 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: Do Natural History Docuementaries Prompt Public Engagement.aux
 The style file: vancouver.bst
 Database file #1: References.bib
+`journal' is a missing field, not a string, for entry richards2013greening
+while executing---line 1865 of file vancouver.bst
+Warning--empty journal in richards2013greening
+(There was 1 error message)
