@@ -39,33 +39,35 @@ library(pageviews)
 library(plyr)
 library(gtools)
 setwd("C:\\Users\\akane\\Desktop\\Science\\Manuscripts\\Documentary analysis\\Documentary-analysis")
-# output<-read.csv("outputMentionedNames.csv",header = T,sep = ",")
-output<-read.csv("messages.csv",header = T,sep = ",")
+# read in either the data for the conservation messages or for the species names 
+output<-read.csv("outputMentionedNames.csv",header = T,sep = ",")
+# output<-read.csv("messages.csv",header = T,sep = ",")
 
 # select either mobile or desktop or combined access
 # Mobile
-# mobileOutput <- output[output$access=="mobile-web" , ]
-# mobileOutput<-droplevels(mobileOutput)
-# head(mobileOutput)
-# newdata <- mobileOutput[c(3,7:8)]
-# newdata$date<-as.POSIXct(strptime(newdata$date,"%Y-%m-%d")) # "%d-%m-%Y" "%d/%m/%Y" "%Y-%m-%d"
-
+ mobileOutput <- output[output$access=="mobile-web" , ]
+ mobileOutput<-droplevels(mobileOutput)
+ head(mobileOutput)
+ newdata <- mobileOutput[c(3,7:8)]
+ newdata$date<-as.POSIXct(strptime(newdata$date,"%d/%m/%Y")) # "%d-%m-%Y" "%d/%m/%Y" "%Y-%m-%d"
+ head(newdata)
+ 
 # Desktop
 # deskOutput <- output[output$access=="desktop" , ]
 # deskOutput<-droplevels(deskOutput)
 # head(deskOutput)
 # newdata <- deskOutput[c(3,7:8)]
-# newdata$date<-as.POSIXct(strptime(newdata$date,"%Y-%m-%d"))
+# newdata$date<-as.POSIXct(strptime(newdata$date,"%d/%m/%Y"))
 
 # Combined
 # can group the mobile and desktop data 
- dataTableOutput<-setDT(output)[, .(sumy=sum(views)), by = .(article,date)]
+# dataTableOutput<-setDT(output)[, .(sumy=sum(views)), by = .(article,date)]
 # 271 + 370 for African elephant 01/01/16
 # 101 + 98 for hawksbill sea turtle 31/12/16
- newdata<-data.frame(dataTableOutput)
- names(newdata)[names(newdata) == 'sumy'] <- 'views'
- newdata$date<-as.POSIXct(strptime(newdata$date,"%Y-%m-%d"))
- newdata<-droplevels(newdata)
+# newdata<-data.frame(dataTableOutput)
+# names(newdata)[names(newdata) == 'sumy'] <- 'views'
+# newdata$date<-as.POSIXct(strptime(newdata$date,"%Y-%m-%d"))
+# newdata<-droplevels(newdata)
 
 ######################################################################################################
 # removed red crab from list of episode 1 species 
@@ -275,22 +277,32 @@ head(anomalyData)
 # Can test individual species here 
 # generic function to loop over the whole data frame requires two columns, one for the date and
 # one for the number of hits. 
-testRun <- newdata[newdata$article=="Lion" , ]
+testRun <- newdata[newdata$article=="Glass_frog" , ]
 res = AnomalyDetectionTs(data.frame(testRun[2:3]), max_anoms=0.01, direction='both', plot=TRUE)
 res$plot
 res$anoms
 
 plot(testRun$date, testRun$views, xlim=range(testRun$date), ylim=range(testRun$views), 
-     xlab="date", ylab="hits", 
-     main = testRun$article[1],pch=16, 
-     col = ifelse(testRun$date == res$anoms$timestamp,'red','black'),
-     cex = ifelse(testRun$date == res$anoms$timestamp,2,1) )
+     xlab="date", ylab="page hits", main = "Glass frog",
+    # main = testRun$article[1],
+     pch=16)
+ 
+#     , col = ifelse(testRun$date == anomalies,'red','black'),
+#     cex = ifelse(testRun$date == res$anoms$timestamp,2,1) )
 
-lines(testRun$date[order(testRun$date)], testRun$views[order(testRun$date)], xlim=range(testRun$date), 
-      ylim=range(testRun$views), pch=16)
+# lines(testRun$date[order(testRun$date)], testRun$views[order(testRun$date)], xlim=range(testRun$date), 
+#      ylim=range(testRun$views), pch=16)
 
+# colour the points by clicking on them if the ifelse statement refuses to work
+pnt <- identify(testRun$date, testRun$views, plot = F)
 
+# This colors those points red
+points(testRun$date[pnt], testRun$views[pnt], col = "red")
 
+# summary stats for the time series 
+median(testRun$views)
+mean(testRun$views)
+max(testRun$views)
 ######################################################################################################
 
 finalData<-read.csv("results of anomaly analysis.csv",header = T,sep = ",")
@@ -345,3 +357,31 @@ sum(finalData$airDateAnomaliesTwo.[finalData$access=="combined" & finalData$loca
 # find the number of animals that have an anomaly during US broadcast using combined access @ 2%
 sum(finalData$airDateAnomaliesTwo.[finalData$access=="combined" & finalData$location=="USA"] > 0) /
   length(finalData$airDateAnomaliesTwo.[finalData$access=="combined" & finalData$location=="USA"])
+######################################################################################################
+# summary stats on the article hits 
+######################################################################################################
+library(dplyr)
+
+# turn off exponential notation 
+options(scipen = 999)
+
+summaryDataMean<-newdata %>%
+  group_by(article) %>%
+  summarise_each(funs(mean(., na.rm=TRUE)))
+
+summaryDataMean<-data.frame(summaryDataMean)
+summaryDataMean$views<-round(summaryDataMean$views,0)
+
+summaryDataMedian<-newdata %>%
+  group_by(article) %>%
+  summarise_each(funs(median(., na.rm=TRUE)))
+
+summaryDataMedian<-data.frame(summaryDataMedian)
+summaryDataMedian$views<-round(summaryDataMedian$views,0)
+
+summaryDataMax<-newdata %>%
+  group_by(article) %>%
+  summarise_each(funs(max(., na.rm=TRUE)))
+
+summaryDataMax<-data.frame(summaryDataMax)
+

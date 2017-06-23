@@ -31,6 +31,7 @@
 \usepackage{dcolumn}
 \usepackage{lineno}
 \usepackage{longtable}
+\usepackage{arydshln} % use for dashed lines
 
 \pagenumbering{arabic}
 
@@ -82,7 +83,7 @@ Version dated: \today
 \medskip
 \begin{center}
 
-\noindent{\Large \bf Do Natural History Documentaries Prompt Public Engagement?} 
+\noindent{\Large \bf The Attenborough Effect: \\  how flagship wildlife documentaries impact public engagement with nature} 
 
 \bigskip
 
@@ -96,8 +97,8 @@ $^1$Biological, Earth and Environmental Sciences, University College Cork, Cork,
 \vspace{1in}
 
 %Line numbering
-\modulolinenumbers[1]
-\linenumbers
+%\modulolinenumbers[1]
+%\linenumbers
 
 %---------------------------------------------
 %
@@ -118,18 +119,20 @@ $^1$Biological, Earth and Environmental Sciences, University College Cork, Cork,
 
 \newpage 
 \section{Introduction}
-We live in the Anthropocene age, a critical time for the planet and the species who inhabit it \cite{rands2010biodiversity}. The effect humanity has on the natural world cannot be overstated given our culpability in causing the so-called the Anthropocene mass extinction event, the worst loss of biodiversity since the dinosaurs perished 65 MYA \cite{barnosky2011has}. We also live in digital age, a time of constant technological change, instant rewards and short attention spans \cite{owen2009internet}. And, although there are signs that people are interested in living sustainably, habitat loss and species extinction continues apace \cite{rands2010biodiversity}. Conservation practitioners are thus faced with the task of alerting the public to the plight of the planet and its many endangered species in a way that is as palatable as it is arresting. 
+We live in the Anthropocene age, a critical time for the planet and the species who inhabit it \cite{rands2010biodiversity}. The effect humanity has on the natural world cannot be overstated given our culpability in causing the so-called the Anthropocene mass extinction event, the worst loss of biodiversity since the dinosaurs perished 65 MYA \cite{barnosky2011has}. But we also live in the digital age, a time of constant technological change, instant rewards and short attention spans \cite{owen2009internet}. And, although there are signs that people are interested in living sustainably, habitat loss and species extinction continue apace \cite{rands2010biodiversity}. Conservation practitioners are thus faced with the task of alerting the public to the plight of the planet and its many endangered species in a way that is as palatable as it is arresting. Awareness of the issues being a necessary though not sufficient step to pro-environmental behavior \cite{kollmuss2002mind}.
 
-Nature documentaries have recently shown their potential to fill this role, with viewing figures at record levels \cite{wunder2013taxing,janpol2016does}. These numbers show there is certainly an appeitite among the public for nature. But we wonder whether this medium, in one of its most popular guises, gets the message of conservation across, or if it is lost along the way. And if so, where does that loss occur, so that we may rectify it.
+Nature documentaries have recently shown their potential to fill this role, with viewing figures at record levels \cite{wunder2013taxing,janpol2016does}. Certainly, these numbers indicate an appeitite among the public for nature. Although a better understanding of enviornmental issues does not always translate to a behavioural change to the benefit of the environment \cite{hungerford1990changing,kollmuss2002mind}, some recent work shows that documentaries can enact change and even increase charitable donations (though these changes tend to be temporary) \cite{janpol2016does,jacobsen2011gore}. But we wonder if the medium, in one of its most popular guises, gets the message of conservation across, or if it is lost along the way. And if so, where does that loss occur, so that we may rectify it.
 
-Documentaries readily encounter the dilemma of education versus entertainment which blurs into edutainment \cite{bagust2008screen}. A show that becomes too preachy didactic, or repetitive in its message is sure to lose its audience and, as a consequence, the message it's trying to convey \cite{janpol2016does}. Sir David Attenborough, perhaps the most venerable figure in the history of nature documentary broadcasting, is well aware of this difficulty. In an interview he gave in the 1980s \cite{burgess1984exploring} around the time of The Living Planet he argued, "As a conservationist, I think I would be doing the cause a great disservice if I tacked on to the end of every single programme that I did, a little homily to explain yet again that mankind is wrecking the environment that I have been showing." Rather, his approach has been to showcase the beauty and wonder of the natural world so that the audience will come to appreciate the intrinsic merit of nature and then take some responsibility for its preservation. Any explicit mentions of conservation issues tend to be restricted to a single episode of a documentary run instead of being interspersed throughout \cite{richards2013greening}. This has been a feature of most of his output with the BBC Natural History Unit over the past 40 years. In terms of viewership, his philosophy has been unarguably successful; the latest major broadcast, Planet Earth 2, commanded an audience of around 12 million people per episode in the UK, the highest ever audience for a nature documentary. 
+Documentaries readily encounter the dilemma of education versus entertainment which blurs into edutainment \cite{bagust2008screen}. A show that becomes too preachy, didactic, or repetitive in its message is sure to lose its audience and, as a consequence, the message it's trying to convey \cite{janpol2016does}. Sir David Attenborough, perhaps the most venerable figure in the history of nature documentary broadcasting, is well aware of this difficulty. In an interview he gave in the 1980s \cite{burgess1984exploring} around the time of The Living Planet he argued, "As a conservationist, I think I would be doing the cause a great disservice if I tacked on to the end of every single programme that I did, a little homily to explain yet again that mankind is wrecking the environment that I have been showing." 
 
-But Sir David's approach has been criticised by commentators who argue the picture painted in his shows is a totally, unrealistic view of a pristine natural world, such that it is disingenuous to talk about the marvels of a critically endangered species without a mention of its perilous state \cite{jeffries2003bbc}. This was best captured by the Guardian journalist George Monbiot, who said, "There are two planet earths. One of them is the complex, morally challenging world in which we live, threatened by ecological collapse. The other is the one we see on the wildlife programmes." Indeed, many of the species featured in his shows are in danger of extinction and any campaign to reverse their decline is likely to be time sensitive \cite{biggs2013legal,turvey2007first}. 
+Rather, his approach has been to showcase the beauty and wonder of the natural world so that the audience will come to appreciate the intrinsic merit of nature and then take some responsibility for its preservation. Conservation charities can then benefit from this change in public understanding and engagement to raise money for their cause \cite{burgess1984exploring}. Any explicit mentions of conservation issues tend to be restricted to a single episode of a documentary run instead of being interspersed throughout \cite{richards2013greening}. This has been a feature of most of his output with the BBC Natural History Unit over the past 40 years. In terms of viewership, his philosophy has been unarguably successful; the latest major broadcast, Planet Earth 2, commanded an audience of around 12 million people per episode in the UK, the highest ever audience for a nature documentary. 
 
-In this work, we wanted to put Sir David's philosophy to the test by assessing how the public respond to his shows in terms of further engagement with nature and matters of conservation. Specifically, we looked to internet-based methods in the form of data from Twitter and Wikipedia to gauge public engagement during the broadcast run of Planet Earth 2 \cite{soriano2017internet}. These methods have proven their worth with respect to the public uptake of species-specific conservation campaigns in the UK \cite{soriano2017internet}. Twitter was chosen to get an understanding of people's instant reactions to the show whereas we used Wikipedia to determine whether people were interested in learning more about the featured species. 
+But Sir David's approach has been criticised by commentators who argue his shows paint a totally, unrealistic view of a pristine, natural world, such that, it is disingenuous to talk about the marvels of a critically endangered species without a mention of its perilous state \cite{jeffries2003bbc}. This was best captured by the Guardian journalist George Monbiot, who said, "There are two planet earths. One of them is the complex, morally challenging world in which we live, threatened by ecological collapse. The other is the one we see on the wildlife programmes." Indeed, many of the species featured in Attenborough's shows are in danger of extinction and any campaign to reverse their decline is likely to be time sensitive \cite{biggs2013legal,turvey2007first}. 
+
+In this work, we wanted to put Sir David's philosophy to the test by assessing how the public respond to his shows in terms of further engagement with nature and matters of conservation. Specifically, we looked to internet-based methods in the form of data from Twitter and Wikipedia to gauge public engagement during the broadcast run of Planet Earth 2 \cite{soriano2017internet}. These methods have proven their worth with respect to the public uptake of species-specific conservation campaigns in the UK \cite{soriano2017internet}. Twitter was chosen to get an understanding of people's instant reactions to the show whereas we used Wikipedia to determine whether people were interested in learning more about the featured species \cite{liu2010social}. It is noteworthy that the IUCN status of the species features prominently on its Wikipedia page. We followed this up by acquiring data on the donations given to wildlife charities. Again, we wanted to determine if the show spurred people to donate more.  
 
 
-
+% "issue awareness does not lead to behavior in the environmental dimension."
 
 % 2016 Does viewing documentary films affect environmental perceptions and behaviors?
 % It has been shown that knowledge does not lead to behavior change in the environmental dimension
@@ -144,11 +147,19 @@ In this work, we wanted to put Sir David's philosophy to the test by assessing h
 \section{Materials and Methods}
 We first searched the scripts from the six episodes of Planet Earth 2 for sentences that could be construed as having a conservation theme. This was done indepedently to ensure intercoder reliability. The few discrepanices that resulted were discussed so that we could set out a final set of sentences (See supplementary for script sections). We did this to determine if the script of Planet Earth 2 adhered to Sir David's philosophy described earlier. We then compiled a list of all of the species that were mentioned in the script and assigned each their status on the IUCN Red List. 
 
-We then searched Twitter during the hour each episode was aired and the hour afterwards. We sampled XXX tweets per episode and counted the number mentions of the species that were featured. 
+We then searched Twitter during the hour each episode was aired and the hour afterwards. We sampled over 5000 tweets per episode and counted the number mentions of the species that were featured. 
 
-Next, we used the R package \textit{pageviews} to find the daily number of hits the Wikipedia article for each species featured on Planet Earth 2 received over the course of 2016. We searched for the name of the species as it was stated in the script. Our prediction was that the articles for the species featured on the show would see a spike around the air dates relative to the rest of the year. We were able to distinguish the page hits according to whether they came from mobile phone or a desktop search. This enabled us to make the prediciton that more anomalies would be seen from mobile data due to the ubiquity of smart phones and increase in 'dual screening' - watching television whilst using your phone \cite{holz2015m}. 
+Next, we used the R package \textit{pageviews} to find the daily number of hits the Wikipedia article for each species featured on Planet Earth 2 received over the course of 2016. We searched for the name of the species as it was stated in the script in it's most specific form. For example, if the script used both 'Iguana' and 'Marine iguana' we searched for the latter. Our prediction was that the articles for the species featured on the show would see a spike around the air dates relative to the rest of the year. We were able to distinguish the page hits according to whether they came from mobile phone or a desktop search. This enabled us to make the prediciton that more anomalies would be seen from mobile data due to the ubiquity of smart phones and 'dual screening' - watching television whilst using your phone \cite{holz2015m}. 
 
 We used the R package \textit{AnomalyDetection} to pick out anomalies in the detrended time series data we collated from Wikipedia article hits. We looked at two different senstivities, at 1\% and 2\%. A 1\% sensitivity meant there could be a maximum of 3 anomalous days of hits for an article because it is based on a sample of 365 days, at 2\% there are a maximum of 7 possible days. Of course, there can be fewer extremes or even none. We counted the number of times an article's anomalous day occurred either during the day of broadcast or the day after broadcast of an episode of Planet Earth 2 at both sensitivty levels. We recorded mobile access to the site, desktop access and a combination of the two. We also ran the same analysis using the USA airdates for the show but over a shorter time scale, from January to April 2017.   
+
+In total, we analysed 93 distinct animals that featured in the script of Planet Earth 2 over the six episodes. In addition, five species featured in two separate episodes, Indri, Giant otter, Lion, Termite and Peregrine falcon, giving a total of 98 animal species. For a few of the mentioned animals, a Wikipedia search using the stated name did not result in a defined Wikipedia article so these were excluded. 
+
+We classified the conservation segments of the series into the specific areas of conservation they considered. These were Climate change, Deforestation, Desertification, Ecological light pollution, Habitat destruction, Invasive species, Threatened species and Urban wildlife. We searched Wikipedia for spikes in visitation rates to these pages, as well as the species data, to determine if viewers were investigating these messages further.
+
+The Born Free Foundation, an international conservation charity, based in the UK, supplied us with daily donations data they received through their website for 2016. We used the same approach to that of our Wikipedia analysis in searching for the dates were there was unusually high activity in terms of the value of donations. We mean standardised the donations in this case and searched at the 1\% and 2\% sensitivies as before. 
+
+All data analysis were conducted using R version 3.3.1.
 
 %First we looked at the potential of documentaries to impact / generate public awareness a.Sequence time (or no words) and number of original tweets and wiki hits. Then we look at whether docs are actually reflecting what occurs in the natural world, or as recent criticism suggests, represents a fictitious picture of the state of the plane. a. IUCN vertebrate status -> reflected in script? -> reflected in twitter volume or sentiment?-> reflected in wiki hits? b.Total time / words dedicated to cons messages (including overview sequences) c.Figure with map of distribution of stories, taxa breakdown and IUCN status breakdown. Finally, we look at whether this awareness actually results in engagement and has an impact on conservation issues. Case studies of specific sequences and web hits/donations to relevant charities.
 
@@ -171,7 +182,10 @@ We used the R package \textit{AnomalyDetection} to pick out anomalies in the det
 
 
 \section{Results}
-In total we analysed 93 distinct animals that featured in the script of Planet Earth 2 over the six episodes. In addition, five species featured in two separate episodes, indri, giant otter, lion, termite and peregrine falcon, giving a total of 98 animal species. As expected there were few explicit discussions of conservation across the series. Notably, the IUCN status of the featured animals was never mentioned.  
+ As expected, there were few explicit discussions of conservation across the series. Notably, the IUCN status of the featured animals was never mentioned. Our main prediction that the species featured on the show would see a boost in their Wikipedia page hits was realised for a majority of those we considered when accessed from a mobile phone. Our prediction that most anomalies would be seen from mobile-accessed pages was borne out in both the UK and USA data (table \ref{tab:anomalies}). One species, Jackson's widowbird \textit {Euplectes jacksoni}, saw the largest relative increase in hits to its Wikipedia page with a 450 fold boost. Taxonomy matters for driving people to the correct information source too. Planet Earth 2 incorrectly referred to the Loggerhead shrikes \textit {Lanius ludovicianus} in episode 4, as Butcherbirds, a pair of genera from Australasia, which led to two of the biggest spikes for the Wikipedia Butcherbird page.  
+
+ Our analysis of the Born Free conservation charity showed no spikes in donations on the day of or the day after broadcast for the UK air dates. 
+
 \begin{figure}[H]
 \centering
     \includegraphics[keepaspectratio, totalheight=0.5 \textheight]{map2.jpg}
@@ -179,7 +193,16 @@ In total we analysed 93 distinct animals that featured in the script of Planet E
 \label{info.diff}
 \end{figure}
 
+\begin{figure}[H]
+\centering
+    \includegraphics[keepaspectratio, totalheight=0.5 \textheight]{time series panel plot.pdf}
+\caption{Four time series of species featured in Planet Earth 2 - Desert long-eared bat, Indri, Golden eagle and Pygmy three-toed sloth. The data here are from the year 2016 for pages that were accessed via mobile phones. The red points show anomalies that occurred on the day of or the day after the UK broadcast of an episode}
+\label{timeseries}
+\end{figure}
+
 \begin{table}
+\centering
+\caption {The percentage of anomalies for the 98 mentioned animal species across the 6 episodes of Planet Earth 2. Access refers to the medium people used to read the article. The sensitivity puts a limit on number of anomalies that we can detect.} \label{tab:anomalies} 
     \begin{tabular}{cccc} 
    \hline
     Country & Sensitivity & Access   & Percentage of anomalies \\ \hline
@@ -188,13 +211,31 @@ In total we analysed 93 distinct animals that featured in the script of Planet E
     UK      & 1\%         & Combined & 45                      \\
     UK      & 2\%         & Mobile   & 65                      \\
     UK      & 2\%         & Desktop  & 44                      \\
-    UK      & 2\%         & Combined & 57                      \\ \hline
+    UK      & 2\%         & Combined & 57                      \\ \hdashline
     USA     & 1\%         & Mobile   & 27                      \\ 
     USA     & 1\%         & Desktop  & 10                      \\
     USA     & 1\%         & Combined & 22                      \\
     USA     & 2\%         & Mobile   & 37                      \\
     USA     & 2\%         & Desktop  & 17                      \\
     USA     & 2\%         & Combined & 30                      \\ \hline
+    \end{tabular}
+\end{table}
+
+
+
+
+\begin{table}
+\centering
+\caption {The broadcast dates for Planet Earth 2 in the UK and USA.} \label{tab:dates} 
+    \begin{tabular}{ccc}
+    \hline
+    Episode         & UK broadcast date & USA broadcast date \\ \hline
+    1 - Islands     & 06/11/16          & 18/02/17           \\
+    2 - Mountains   & 13/11/16          & 25/02/17           \\
+    3 - Jungles     & 20/11/16          & 04/03/17           \\
+    4 - Deserts     & 27/11/16          & 11/03/17           \\
+    5 - Grasslands  & 04/12/16          & 18/03/17           \\
+    6 - Cities      & 11/12/16          & 25/03/17           \\ \hline
     \end{tabular}
 \end{table}
 %\begin{table}[]

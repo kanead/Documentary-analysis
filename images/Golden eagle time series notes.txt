@@ -1,0 +1,3 @@
+median = 937
+mean = 976
+max = 2592

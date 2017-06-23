@@ -3,8 +3,6 @@
 # clean everything first
 rm(list=ls())
 
-#Cork beats nobody
-
 # Step 1: Load the necessary packages
 # required pakacges
 detach("package:dplyr", unload=TRUE)
@@ -35,7 +33,7 @@ setup_twitter_oauth(consumerKey,
 
 # Step 2: Let's collect some tweets containing the whatever term we're interested in
 # harvest some tweets
-some_tweets = searchTwitter("#BES2016", n=1500, lang="en")
+some_tweets = searchTwitter("Trump", n=500, lang="en")
 
 # get the text
 some_txt = sapply(some_tweets, function(x) x$getText())
