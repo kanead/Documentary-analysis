@@ -6,16 +6,15 @@ library(dplyr)
 library(stringr)
 require(stringi)
 
-setwd("C:\\Users\\akane\\Desktop\\Science\\Manuscripts\\Documentary analysis\\Documentary-analysis")
-mydata <- read.csv("twittah.csv",header = T, sep = ",")
-head(mydata)
+setwd("C:/Users/dfernandezbellon/Dropbox/work/documentaries/sir david/twittah/")
+data <- read.csv("twittah.csv",header = T, sep = ",")
+head(data)
 ######################################################################################################
 # Count the number of tweets we recovered by episode
 ######################################################################################################
 
-broadcastLength<-data.frame(mydata %>% 
-  group_by(broadcast) %>%
-  summarise(no_rows = length(broadcast)))
+broadcastLength<-data.frame(data %>% group_by(broadcast)%>%summarise(no_rows = length(broadcast)))
+broadcastLength
 
 # episode 1 = 6086 tweets        
 # episode 2 = 5693 tweets        
@@ -25,9 +24,73 @@ broadcastLength<-data.frame(mydata %>%
 # episode 6 = 5584 tweets
 
 ######################################################################################################
+# Subset tweets (use=1) to obtain 5k per episode and count again
+######################################################################################################
+
+mydata<-data[which(data$use==1),]
+
+
+broadcastLength<-data.frame(mydata %>% group_by(broadcast) %>% summarise(no_rows = length(broadcast)))
+broadcastLength
+
+# all episodes 5k
+
+######################################################################################################
 # Count number of occurrences of species in tweets
 ######################################################################################################
 # don't forget the crab!
+
+#what fucking crab??
+
+#
+#
+#
+#
+#
+#
+#
+#I'm working on this - D
+#
+#need to:
+#         finalise species list
+#         figure out a way to input vector of string variables into count formula
+#         ONLY do sp count for the episode in which they appeared (as opposed to tweets from all episodes)
+#
+#
+#frome Kane-O:
+#
+#       x<-dplyr::filter(mydata, grepl('sloth|Komodo', mydata$content,ignore.case = TRUE))
+#       length(x$content)
+#Need to find out how to input the names from the vector of string variables rather than typing them all out. But it works. 
+
+
+
+
+#Episode 1
+episode1 <- c("sloth","Komodo","Indri","lemur","Sifaka","iguana","snake","penguin","Shearwater","albatross",
+              "tern","fody","Noddy","crazy ant", "Skua")
+
+grepl(episode1, mydata$content,fixed=TRUE,ignore.case = TRUE)
+
+
+x<-dplyr::filter(mydata, grepl(episode1, mydata$content,fixed=TRUE,ignore.case = TRUE))
+length(x$content)
+
+
+
+
+
+
+
+
+
+#
+# PREVIOUS SCRIPT
+#
+
+
+
+
 # collapse all the rows of tweets into a single block of text
 tweetText<-paste(unlist(mydata$content), collapse =" ")
 
