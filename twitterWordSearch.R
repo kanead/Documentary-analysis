@@ -33,14 +33,14 @@ mydata<-data[which(data$use==1),]
 broadcastLength<-data.frame(mydata %>% group_by(broadcast) %>% summarise(no_rows = length(broadcast)))
 broadcastLength
 
-# all episodes 5k
+# all episodes = 5k tweets each
 
 ######################################################################################################
 # Count number of occurrences of species in tweets
 ######################################################################################################
 # don't forget the crab!
-
-#what fucking crab??
+#
+#what fucking crab, Dr Kane??
 
 #
 #
@@ -64,17 +64,40 @@ broadcastLength
 #Need to find out how to input the names from the vector of string variables rather than typing them all out. But it works. 
 
 
+#counts number of tweets containing value - validate (make sure not counting total number ocurrences)
+#
 
+episode1 <- c("sloth","Komodo","Indri","lemur","Sifaka","iguana","snake","penguin","Shearwater","albatross",
+              "tern","fody","Noddy","crazy ant", "Skua")
+
+
+
+
+length(grep("komodo",mydata$content,ignore.case = TRUE))
+
+
+
+
+#try to get it to count vector
+episode1 <- c("sloth","Komodo","Indri","lemur","Sifaka","iguana","snake","penguin","Shearwater","albatross",
+              "tern","fody","Noddy","crazy ant", "Skua")
+
+
+
+
+length(grep("komodo",mydata$content,ignore.case = TRUE))
+length(grepl("komodo",mydata$content,ignore.case = TRUE))
+
+
+sum(str_count(mydata$content,"komodo"))
 
 #Episode 1
 episode1 <- c("sloth","Komodo","Indri","lemur","Sifaka","iguana","snake","penguin","Shearwater","albatross",
               "tern","fody","Noddy","crazy ant", "Skua")
 
-grepl(episode1, mydata$content,fixed=TRUE,ignore.case = TRUE)
+grepl('sloth', mydata$content,fixed=TRUE,ignore.case = TRUE)
 
 
-x<-dplyr::filter(mydata, grepl(episode1, mydata$content,fixed=TRUE,ignore.case = TRUE))
-length(x$content)
 
 
 
