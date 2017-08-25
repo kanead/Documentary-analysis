@@ -1,0 +1,120 @@
+accuracy,mul,seco,diaries,taxa,status,wiki,mobile anomaly 1%,mobile anomaly 2%,desktop anomaly 1%,desktop anomaly 2%,anomaly
+2,1,255,0,mammal,lc,African buffalo,0,0,0,0,0
+1,1,65,0,inverteb,na,Amitermes meridionalis,2,2,2,2,1
+1,1,206,0,mammal,lc,Arctic wolf,1,1,0,0,1
+2,1,130,0,inverteb,na,Atta (genus),0,0,0,0,0
+2,1,9,0,mammal,cr,Bamboo lemur,2,2,1,1,1
+1,1,53,0,bird,lc,Barn owl,0,0,0,0,0
+2,1,293,0,mammal,nt,Bison,0,1,0,0,1
+1,1,360,0,mammal,lc,Bobcat,2,2,0,1,1
+1,1,215,0,bird,nt,Buller's albatross,2,2,2,2,1
+4,1,106,0,bird,lc,Butcherbird,2,2,2,2,1
+2,1,418,0,reptile,lc,Caiman,0,1,0,1,1
+1,1,418,0,mammal,lc,Capybara,0,0,0,0,0
+1,1,270,0,mammal,vu,Caribou,1,1,1,1,1
+1,2,937,1,bird,lc,Chinstrap penguin,2,2,2,2,1
+2,1,198,0,inverteb,na,Christmas Island red crab,1,2,0,1,1
+2,1,72,0,inverteb,na,Click beetle,0,0,0,0,0
+1,2,607,1,mammal,lc,Colobinae,0,0,0,0,0
+2,1,292,0,reptile,na,Colubridae,1,2,1,1,1
+na,1,116,0,bird,na,Corvidae,0,0,0,0,0
+1,1,24,0,mammal,lc,Coyote,0,0,0,0,0
+3,1,20,0,inverteb,na,Crab,0,0,0,0,0
+3,1,36,0,inverteb,na,Crab,0,0,0,0,0
+2,1,217,0,inverteb,na,Darkling beetle,0,0,0,0,0
+1,1,140,0,inverteb,na,Deathstalker,0,1,0,0,1
+1,1,185,0,mammal,lc,Desert long-eared bat,2,2,2,2,1
+2,1,180,0,reptile,na,Draco (genus),1,2,0,2,1
+2,1,132,0,mammal,vu,Elephant,0,0,0,0,0
+2,1,193,0,mammal,vu,Elephant,0,0,0,0,0
+2,1,515,1,mammal,en,Elephant,0,0,0,0,0
+4,1,277,0,bird,lc,Fairy tern,2,2,1,2,1
+2,1,12,1,inverteb,na,Fire ant,0,0,0,0,0
+2,1,263,0,bird,nt,Flamingo,1,2,0,1,1
+2,1,194,0,mammal,lc,Fox,1,1,0,0,1
+1,1,117,0,mammal,vu,Giant anteater,1,2,0,0,1
+1,1,9,0,mammal,en,Giant otter,2,2,1,1,1
+1,1,172,0,mammal,vu,Giraffe,0,0,0,0,0
+2,1,328,0,amphibi,lc,Glass frog,0,2,0,0,1
+1,2,824,1,bird,lc,Golden eagle,2,2,0,0,1
+2,1,153,0,mammal,nt,Golden mole,2,2,2,2,1
+1,1,26,0,bird,lc,Goldeneye (duck),1,2,0,0,1
+1,1,290,0,bird,lc,Great bowerbird,2,2,1,2,1
+1,1,417,0,mammal,lc,Grizzly bear,0,1,0,0,1
+2,1,115,0,mammal,lc,Ground squirrel,0,0,0,0,0
+1,1,132,0,bird,lc,Harris's hawk,2,2,2,2,1
+1,1,241,0,reptile,cr,Hawksbill sea turtle,2,2,0,1,1
+na,1,36,0,bird,na,Hummingbird,0,0,0,0,0
+1,1,13,0,mammal,cr,Indri,0,0,0,0,0
+1,2,218,0,mammal,cr,Indri,2,2,2,2,1
+1,1,242,0,bird,nt,Jackson's widowbird,2,2,2,2,1
+1,1,342,0,mammal,nt,Jaguar,0,1,0,0,1
+1,1,290,0,reptile,vu,Komodo dragon,1,2,1,2,1
+1,1,41,0,bird,nt,Kori bustard,2,2,2,2,1
+1,1,158,0,mammal,lc,Lagidium,2,2,1,2,1
+na,1,55,0,mammal,na,Lemur,0,0,0,0,0
+1,2,451,1,mammal,vu,Leopard,1,1,0,0,1
+1,1,347,0,mammal,vu,Lion,0,0,0,0,0
+1,1,386,0,mammal,vu,Lion,0,0,0,0,0
+3,1,30,0,reptile,na,Lizard,0,0,0,0,0
+3,2,779,1,inverteb,na,Locust,2,2,1,2,1
+1,1,484,0,reptile,vu,Marine iguana,0,0,0,1,0
+2,1,6,0,mammal,lc,Marmot,0,0,0,0,0
+1,1,220,0,mammal,lc,Micromys,2,2,0,2,1
+3,1,63,0,inverteb,na,Millipede,0,1,0,0,1
+3,1,13,0,mammal,na,Mouse,0,0,0,0,0
+na,1,122,0,plant,na,na,NA,NA,NA,NA,NA
+na,1,168,0,plant,lc,na,NA,NA,NA,NA,NA
+na,1,98,0,plant,na,na,NA,NA,NA,NA,NA
+na,1,50,0,plant,na,na,NA,NA,NA,NA,NA
+na,1,237,0,mammal,na,na,NA,NA,NA,NA,NA
+1,1,35,0,reptile,na,na,NA,NA,NA,NA,NA
+na,1,114,0,mammal,na,na,NA,NA,NA,NA,NA
+1,1,35,0,reptile,lc,Namaqua chameleon,2,2,0,1,1
+2,1,193,0,bird,lc,Noddy (tern),0,1,0,0,1
+1,1,374,0,mammal,vu,Nubian ibex,2,2,2,2,1
+2,1,82,0,mammal,nt,Oryx,1,1,0,0,1
+1,1,47,0,bird,lc,Ostrich,0,1,0,0,1
+1,1,27,0,reptile,na,Pachydactylus rangei,1,1,0,0,1
+2,1,65,0,bird,lc,Pale chanting goshawk,2,2,0,1,1
+1,1,236,0,bird,lc,Peregrine falcon,0,1,0,0,1
+1,1,209,0,bird,lc,Pigeon,0,0,0,0,0
+1,1,198,0,mammal,cr,Pygmy three-toed sloth,2,2,1,2,1
+1,1,223,0,mammal,lc,Raccoon,1,1,0,0,1
+2,1,95,0,inverteb,na,Railroad worm,2,2,2,2,1
+3,1,7,1,mammal,na,Rat,0,0,0,0,0
+1,1,124,0,bird,nt,Red bird-of-paradise,1,2,1,2,1
+1,1,196,0,mammal,lc,Red fox,0,0,0,0,0
+1,1,167,0,mammal,lc,Rhesus macaque,0,1,0,0,1
+2,1,214,1,mammal,vu,Rhinoceros,0,0,0,0,0
+1,1,9,0,mammal,en,Ring-tailed lemur,0,0,0,0,0
+2,2,552,1,mammal,data de,River dolphin,2,2,1,1,1
+1,1,160,0,mammal,cr,Saiga antelope,2,2,1,2,1
+2,1,248,0,bird,lc,Sandgrouse,2,2,2,2,1
+1,1,246,0,mammal,lc,Serval,0,1,0,0,1
+1,1,49,0,bird,nt,Seychelles fody,2,2,0,1,1
+2,1,20,0,bird,nt,Shearwater,1,2,0,0,1
+2,1,181,0,mammal,en,Sifaka,0,0,0,0,0
+2,1,27,1,bird,lc,Skua,0,0,0,0,0
+1,1,360,1,mammal,vu,Sloth bear,1,2,0,0,1
+1,1,60,0,bird,vu,Snares penguin,1,2,1,1,1
+1,2,574,0,mammal,en,Snow Leopard,0,1,0,0,1
+1,1,173,0,mammal,lc,Southern African vlei rat,1,2,0,1,1
+2,1,240,0,bird,lc,Southern carmine bee eater,2,2,2,2,1
+3,1,8,1,inverteb,na,Spider,0,1,0,0,1
+2,1,308,0,mammal,en,Spider monkey,1,2,0,0,1
+1,1,302,0,mammal,lc,Spotted hyena,1,2,0,2,1
+2,1,47,0,mammal,na,Squirrel,0,0,0,0,0
+2,1,155,0,bird,lc,Starling,1,1,0,0,1
+1,1,166,0,bird,lc,Sword-billed hummingbird,2,2,1,2,1
+3,1,64,0,inverteb,na,Termite,0,0,0,0,0
+1,1,505,1,mammal,en,Tiger,0,0,0,0,0
+2,1,44,0,reptile,na,Uroplatus,0,0,0,0,0
+2,1,22,0,mammal,na,Vole,0,0,0,0,0
+3,1,169,0,inverteb,na,Wasp,0,0,0,0,0
+1,1,166,0,fish,lc,Wels catfish,2,2,1,2,1
+1,1,407,1,mammal,en,Wild water buffalo,0,0,0,0,0
+2,1,36,0,mammal,lc,Wildebeest,1,1,0,0,1
+1,1,228,0,bird,nt,Wilson's bird-of-paradise,2,2,2,2,1
+2,1,98,0,inverteb,a,Yellow crazy ant,2,2,1,2,1
+2,1,171,0,mammal,nt,Zebra,1,1,0,0,1
