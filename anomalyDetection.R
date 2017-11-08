@@ -45,19 +45,19 @@ output<-read.csv("output.csv",header = T,sep = ",")
 
 # select either mobile or desktop or combined access
 # Mobile
-# mobileOutput <- output[output$access=="mobile-web" , ]
-# mobileOutput<-droplevels(mobileOutput)
-# head(mobileOutput)
-# newdata <- mobileOutput[c(3,7:8)]
-# newdata$date<-as.POSIXct(strptime(newdata$date,"%d/%m/%Y")) # "%d-%m-%Y" "%d/%m/%Y" "%Y-%m-%d"
-# head(newdata)
+ mobileOutput <- output[output$access=="mobile-web" , ]
+ mobileOutput<-droplevels(mobileOutput)
+ head(mobileOutput)
+ newdata <- mobileOutput[c(3,7:8)]
+ newdata$date<-as.POSIXct(strptime(newdata$date,"%d/%m/%Y")) # "%d-%m-%Y" "%d/%m/%Y" "%Y-%m-%d"
+ head(newdata)
  
 # Desktop
- deskOutput <- output[output$access=="desktop" , ]
- deskOutput<-droplevels(deskOutput)
- head(deskOutput)
- newdata <- deskOutput[c(3,7:8)]
- newdata$date<-as.POSIXct(strptime(newdata$date,"%d/%m/%Y"))
+# deskOutput <- output[output$access=="desktop" , ]
+# deskOutput<-droplevels(deskOutput)
+# head(deskOutput)
+# newdata <- deskOutput[c(3,7:8)]
+# newdata$date<-as.POSIXct(strptime(newdata$date,"%d/%m/%Y"))
 
 # Combined
 # can group the mobile and desktop data 
