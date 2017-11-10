@@ -36,12 +36,12 @@ output<-read.csv("output.csv",header = T,sep = ",")
 
 # select either mobile or desktop or combined access
 # Mobile
-mobileOutput <- output[output$access=="mobile-web" , ]
-mobileOutput<-droplevels(mobileOutput)
-head(mobileOutput)
-newdata <- mobileOutput[c(3,7:8)]
-newdata$date<-as.POSIXct(strptime(newdata$date,"%d/%m/%Y")) # "%d-%m-%Y" "%d/%m/%Y" "%Y-%m-%d"
-head(newdata)
+# mobileOutput <- output[output$access=="mobile-web" , ]
+# mobileOutput<-droplevels(mobileOutput)
+# head(mobileOutput)
+# newdata <- mobileOutput[c(3,7:8)]
+# newdata$date<-as.POSIXct(strptime(newdata$date,"%d/%m/%Y")) # "%d-%m-%Y" "%d/%m/%Y" "%Y-%m-%d"
+# head(newdata)
 
 # Desktop
 # deskOutput <- output[output$access=="desktop" , ]
@@ -52,13 +52,13 @@ head(newdata)
 
 # Combined
 # can group the mobile and desktop data 
-# dataTableOutput<-setDT(output)[, .(sumy=sum(views)), by = .(article,date)]
+ dataTableOutput<-setDT(output)[, .(sumy=sum(views)), by = .(article,date)]
 # 271 + 370 for African elephant 01/01/16
 # 101 + 98 for hawksbill sea turtle 31/12/16
-# newdata<-data.frame(dataTableOutput)
-# names(newdata)[names(newdata) == 'sumy'] <- 'views'
-# newdata$date<-as.POSIXct(strptime(newdata$date,"%Y-%m-%d"))
-# newdata<-droplevels(newdata)
+ newdata<-data.frame(dataTableOutput)
+ names(newdata)[names(newdata) == 'sumy'] <- 'views'
+ newdata$date<-as.POSIXct(strptime(newdata$date,"%d/%m/%Y"))
+ newdata<-droplevels(newdata)
 
 ######################################################################################################
 episode1 <- c("Pygmy_three-toed_sloth","Komodo_dragon","Lemur","Indri","Ring-tailed_lemur","Bamboo_lemur",
