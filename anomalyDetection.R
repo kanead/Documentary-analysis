@@ -38,6 +38,7 @@ library(ggplot2)
 library(pageviews)
 library(plyr)
 library(gtools)
+library(data.table)
 setwd("C:\\Users\\akane\\Desktop\\Science\\Manuscripts\\Documentary analysis\\Documentary-analysis")
 # read in either the data for the conservation messages or for the species names 
 output<-read.csv("output.csv",header = T,sep = ",")
@@ -273,13 +274,13 @@ head(anomalyData)
 # one for the number of hits. 
 par(mfrow=c(1,1))
 
-testRun <- newdata[newdata$article=="Lion" , ]
+testRun <- newdata[newdata$article=="Caribou" , ]
 res = AnomalyDetectionTs(data.frame(testRun[2:3]), max_anoms=0.01, direction='both', plot=TRUE)
 res$plot
 res$anoms
 
 plot(testRun$date, testRun$views, xlim=range(testRun$date), ylim=range(testRun$views), 
-     xlab="date", ylab="page hits", main = "Lion",
+     xlab="date", ylab="page hits", main = "Caribou",
     # main = testRun$article[1],
      pch=16)
  

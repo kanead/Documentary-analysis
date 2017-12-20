@@ -37,6 +37,13 @@ class(data.new)
 #data.new<-data.new[70:80]
 #droplevels(data.new)
 
+
+#data<-article_pageviews(project = "en.wikipedia", article = "Steve_Biko"
+#                  , start = as.Date('2016-12-01'), end = as.Date("2016-12-31")
+#                  , user_type = "user", platform = c("desktop", "mobile-web"))
+
+#plot(data$views[data$access=="desktop"]~data$date[data$access=="desktop"])
+
 # modify the function from pageviews package to collect data for each species - UK air dates
 get_wiki <- function(x){article_pageviews(project = "en.wikipedia", article = x
                                           , start = as.Date('2015-07-01'), end = as.Date("2016-06-30")

@@ -29,4 +29,4 @@ res = AnomalyDetectionTs(data.frame(meanStdOutput), max_anoms=0.01, direction='b
 res$plot
 res$anoms
 
-plot(meanStdOutput$Day.Index, meanStdOutput$standardised,xlab="date", ylab="donations", pch=16)
+plot(meanStdOutput$Day.Index, meanStdOutput$standardised,xlab="date", ylab="donations", pch=16, main="Born Free Foundation")
