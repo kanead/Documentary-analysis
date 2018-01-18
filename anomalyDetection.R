@@ -82,7 +82,7 @@ newdata1<-droplevels(newdata1)
 
 # episode 1 function
 airedAnomDataDays1<-ddply(newdata1, "article", function(x) {
-  res = AnomalyDetectionTs((data.frame(x[2:3])), max_anoms=0.01, direction='both', plot=TRUE)
+  res = AnomalyDetectionTs((data.frame(x[2:3])), max_anoms=0.1, direction='both', plot=TRUE)
   # determine if the anomalies are between 2 dates
   anomalies<-ifelse(strptime((res$anoms$timestamp), format = "%Y-%m-%d") 
                     == strptime(as.Date("2016-11-06"), format = "%Y-%m-%d") | 
@@ -102,7 +102,7 @@ newdata2<-droplevels(newdata2)
 
 # episode 2 function
 airedAnomDataDays2<-ddply(newdata2, "article", function(x) {
-  res = AnomalyDetectionTs((data.frame(x[2:3])), max_anoms=0.01, direction='both', plot=TRUE)
+  res = AnomalyDetectionTs((data.frame(x[2:3])), max_anoms=0.1, direction='both', plot=TRUE)
   # determine if the anomalies are between 2 dates
   anomalies<-ifelse(strptime((res$anoms$timestamp), format = "%Y-%m-%d") 
                     == strptime(as.Date("2016-11-13"), format = "%Y-%m-%d") | 
@@ -122,7 +122,7 @@ newdata3<-droplevels(newdata3)
 
 # episode 3 function
 airedAnomDataDays3<-ddply(newdata3, "article", function(x) {
-  res = AnomalyDetectionTs((data.frame(x[2:3])), max_anoms=0.01, direction='both', plot=TRUE)
+  res = AnomalyDetectionTs((data.frame(x[2:3])), max_anoms=0.1, direction='both', plot=TRUE)
   # determine if the anomalies are between 2 dates
   anomalies<-ifelse(strptime((res$anoms$timestamp), format = "%Y-%m-%d") 
                     == strptime(as.Date("2016-11-20"), format = "%Y-%m-%d") | 
@@ -142,7 +142,7 @@ newdata4<-droplevels(newdata4)
 
 # episode 4 function
 airedAnomDataDays4<-ddply(newdata4, "article", function(x) {
-  res = AnomalyDetectionTs((data.frame(x[2:3])), max_anoms=0.01, direction='both', plot=TRUE)
+  res = AnomalyDetectionTs((data.frame(x[2:3])), max_anoms=0.1, direction='both', plot=TRUE)
   # determine if the anomalies are between 2 dates
   anomalies<-ifelse(strptime((res$anoms$timestamp), format = "%Y-%m-%d") 
                     == strptime(as.Date("2016-11-27"), format = "%Y-%m-%d") | 
@@ -163,7 +163,7 @@ newdata5<-droplevels(newdata5)
 
 # episode 5 function
 airedAnomDataDays5<-ddply(newdata5, "article", function(x) {
-  res = AnomalyDetectionTs((data.frame(x[2:3])), max_anoms=0.01, direction='both', plot=TRUE)
+  res = AnomalyDetectionTs((data.frame(x[2:3])), max_anoms=0.1, direction='both', plot=TRUE)
   # determine if the anomalies are between 2 dates
   anomalies<-ifelse(strptime((res$anoms$timestamp), format = "%Y-%m-%d") 
                     == strptime(as.Date("2016-12-04"), format = "%Y-%m-%d") | 
@@ -183,7 +183,7 @@ newdata6<-droplevels(newdata6)
 
 # episode 6 function
 airedAnomDataDays6<-ddply(newdata6, "article", function(x) {
-  res = AnomalyDetectionTs((data.frame(x[2:3])), max_anoms=0.01, direction='both', plot=TRUE)
+  res = AnomalyDetectionTs((data.frame(x[2:3])), max_anoms=0.1, direction='both', plot=TRUE)
   # determine if the anomalies are between 2 dates
   anomalies<-ifelse(strptime((res$anoms$timestamp), format = "%Y-%m-%d") 
                     == strptime(as.Date("2016-12-11"), format = "%Y-%m-%d") | 
@@ -196,7 +196,7 @@ airedAnomDataDays6<-ddply(newdata6, "article", function(x) {
 
 # loop over all species to find the total number of anomalies for each species over the course of the year
 lengthAnomData<-ddply(newdata, "article", function(x) {
-  res = AnomalyDetectionTs((data.frame(x[2:3])), max_anoms=0.01, direction='both', plot=TRUE)
+  res = AnomalyDetectionTs((data.frame(x[2:3])), max_anoms=0.1, direction='both', plot=TRUE)
   # determine if the anomalies are between 2 dates
   anomalies<-ifelse(strptime((res$anoms$timestamp), format = "%Y-%m-%d") <= strptime(as.Date("2016-12-11"), format = "%Y-%m-%d") 
                     & strptime((res$anoms$timestamp), format = "%Y-%m-%d") >= strptime(as.Date("2016-11-06"), format = "%Y-%m-%d"),1,0)
@@ -362,6 +362,7 @@ library(dplyr)
 # turn off exponential notation 
 options(scipen = 999)
 
+# mean 
 summaryDataMean<-newdata %>%
   group_by(article) %>%
   summarise_each(funs(mean(., na.rm=TRUE)))
@@ -369,6 +370,7 @@ summaryDataMean<-newdata %>%
 summaryDataMean<-data.frame(summaryDataMean)
 summaryDataMean$views<-round(summaryDataMean$views,0)
 
+# median 
 summaryDataMedian<-newdata %>%
   group_by(article) %>%
   summarise_each(funs(median(., na.rm=TRUE)))
@@ -376,9 +378,19 @@ summaryDataMedian<-newdata %>%
 summaryDataMedian<-data.frame(summaryDataMedian)
 summaryDataMedian$views<-round(summaryDataMedian$views,0)
 
+# maximum 
 summaryDataMax<-newdata %>%
   group_by(article) %>%
   summarise_each(funs(max(., na.rm=TRUE)))
 
 summaryDataMax<-data.frame(summaryDataMax)
+
+# standard deviation  
+summaryDataSD<-newdata %>%
+  group_by(article) %>%
+  summarise_each(funs(sd(., na.rm=TRUE)))
+
+summaryDataSD<-data.frame(summaryDataSD)
+summaryDataSD$views<-round(summaryDataSD$views,0)
+
 

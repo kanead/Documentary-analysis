@@ -46,4 +46,4 @@ newdata<-droplevels(newdata)
  meidanTotalViewsBase<-ddply(newdata, "article", function(x) {
   median(x$views)
  })
- meidanTotalViewsBase
+ meidanTotalViewsBase$V1 <- round(meidanTotalViewsBase$V1,0)
